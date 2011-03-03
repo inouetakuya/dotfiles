@@ -5,6 +5,127 @@
 // ========================================================================= //
 //{{%PRESERVE%
 // ここにコードを入力して下さい
+var local = {};
+plugins.options["site_local_keymap.local_keymap"] = local;
+
+function fake(k, i) function () { key.feed(k, i); };
+function pass(k, i) [k, fake(k, i)];
+function ignore(k, i) [k, null];
+
+function passThenFocus(k, i, selector, type) {
+    return [k, function () {
+	key.feed(k, i, type);
+	let elem = content.document.querySelector(selector);
+	if (elem)
+	    elem.focus();
+    }];
+};
+
+local["^https?://mail.google.com/mail/"] = [
+    passThenFocus(['g', 'i'], 3, "#canvas_frame"),
+    passThenFocus(['g', 's'], 3, "#canvas_frame"),
+    passThenFocus(['g', 't'], 3, "#canvas_frame"),
+    passThenFocus(['g', 'd'], 3, "#canvas_frame"),
+    passThenFocus(['g', 'a'], 3, "#canvas_frame"),
+    passThenFocus(['g', 'b'], 3, "#canvas_frame"),
+    passThenFocus(['g', 'c'], 3, "#canvas_frame"),
+    passThenFocus(['g', 'k'], 3, "#canvas_frame"),
+    // thread list
+    pass(['*', 'a'], 3),
+    pass(['*', 'n'], 3),
+    pass(['*', 'r'], 3),
+    pass(['*', 'u'], 3),
+    pass(['*', 's'], 3),
+    pass(['*', 't'], 3),
+    // navigation
+    ['u', null],
+    ['k', null],
+    ['j', null],
+    ['o', null],
+    ['p', null],
+    ['n', null],
+    // application
+    ['c', null],
+    ['/', null],
+    ['q', null],
+    ['?', null],
+    // manipulation
+    ['x', null],
+    ['s', null],
+    ['y', null],
+    ['e', null],
+    ['m', null],
+    ['!', null],
+    ['#', null],
+    ['r', null],
+    ['R', null],
+    ['a', null],
+    ['A', null],
+    ['f', null],
+    ['F', null],
+    ['N', null],
+    pass(['<tab>', 'RET'], 3),
+    ['ESC', null],
+    [']', null],
+    ['[', null],
+    ['z', null],
+    ['.', null],
+    ['I', null],
+    ['U', null],
+    ['C-s', null],
+    ['T', null]
+];
+
+local["^http://www.google.(co.jp|com)/reader/view/"] = [
+    // jump
+    pass(["g", "h"]),
+    pass(["g", "a"]),
+    pass(["g", "s"]),
+    pass(["g", "S"]),
+    pass(["g", "u"]),
+    pass(["g", "t"]),
+    pass(["g", "T"]),
+    pass(["g", "d"]),
+    pass(["g", "f"]),
+    pass(["g", "F"]),
+    pass(["g", "c"]),
+    pass(["g", "C"]),
+    pass(["g", "e"]),
+    pass(["g", "p"]),
+    // navigation
+    ["j", null],
+    ["k", null],
+    ["n", null],
+    ["p", null],
+    ["N", null],
+    ["P", null],
+    ["X", null],
+    ["o", null],
+    // item
+    ["s", null],
+    ["L", null],
+    ["t", null],
+    //["e", null],
+    ["S", null],
+    ["d", null],
+    ["v", null],
+    ["o", null],
+    ["c", null],
+    ["C", null],
+    ["m", null],
+    ["A", null],
+    ["T", null],
+    // application
+    ["r", null],
+    ["u", null],
+    ["1", null],
+    ["2", null],
+    ["/", null],
+    ["a", null],
+    ["=", null],
+    ["-", null]
+];
+
 //}}%PRESERVE%
 // ========================================================================= //
 
