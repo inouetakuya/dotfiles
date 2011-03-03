@@ -146,6 +146,30 @@ key.setGlobalKey('C-M-h', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
+key.setGlobalKey(['C-x', 'e'], function (aEvent, aArg) {
+    ext.exec("hok-start-foreground-mode", aArg);
+}, 'Hit a Hint を開始', true);
+
+key.setGlobalKey(['C-x', 'E'], function (aEvent, aArg) {
+    ext.exec("hok-start-background-mode", aArg);
+}, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
+
+key.setViewKey('e', function (aEvent, aArg) {
+    ext.exec("hok-start-foreground-mode", aArg);
+}, 'Hit a Hint を開始', true);
+
+key.setViewKey('E', function (aEvent, aArg) {
+    ext.exec("hok-start-background-mode", aArg);
+}, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
+
+key.setViewKey(';', function (aEvent, aArg) {
+    ext.exec("hok-start-extended-mode", aArg);
+}, 'HoK - 拡張ヒントモード', true);
+
+key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
+    ext.exec("hok-start-continuous-mode", aArg);
+}, 'リンクを連続して開く Hit a Hint を開始', true);
+
 key.setViewKey([['C-n'], ['j']], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
 }, '一行スクロールダウン');
