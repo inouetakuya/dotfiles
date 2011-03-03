@@ -283,6 +283,30 @@ key.setGlobalKey('C-M-h', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
+key.setViewKey('C-M-u', function (ev, arg) {
+    var w = window._content;
+    var d = w.document;
+    var txt = d.location.href;
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    CLIPBOARD.copyString(txt);
+}, 'URL をコピー');
+
+key.setViewKey('C-M-t', function (ev, arg) {
+    var w = window._content;
+    var d = w.document;
+    var txt = d.title;
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    CLIPBOARD.copyString(txt);
+}, 'タイトルをコピー');
+
+key.setViewKey('C-M-b', function (ev, arg) {
+    var w = window._content;
+    var d = w.document;
+    var txt = d.title + ("\n" + d.location.href);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    CLIPBOARD.copyString(txt);
+}, 'URL とタイトルをコピー');
+
 key.setViewKey('e', function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hit a Hint を開始', true);
