@@ -222,7 +222,7 @@ key.setEditKey(['C-x', 'h'], function (ev) {
     command.selectAll(ev);
 }, '全て選択', true);
 
-key.setEditKey([['C-x', 'u'], ['C-_']], function (ev) {
+key.setEditKey([['C-x', 'u'], ['C-/']], function (ev) {
     display.echoStatusBar("Undo!", 2000);
     goDoCommand("cmd_undo");
 }, 'アンドゥ');
@@ -250,7 +250,8 @@ key.setEditKey(['C-x', 'r', 'y'], function (ev) {
     command.yankRectangle(ev.originalTarget, command.kill.buffer);
 }, '矩形ヤンク', true);
 
-key.setEditKey([['C-`'], ['C-@']], function (ev) {
+// コントロールを押しながら @ を押すと C-` になる
+key.setEditKey([['C-i'], ['C-`']], function (ev) {
     command.setMark(ev);
 }, 'マークをセット', true);
 
@@ -258,7 +259,8 @@ key.setEditKey('C-o', function (ev) {
     command.openLine(ev);
 }, '行を開く (Open line)');
 
-key.setEditKey('C-\\', function (ev) {
+// コントロールを押しながら \ を押すと C-| になる
+key.setEditKey('C-|', function (ev) {
     display.echoStatusBar("Redo!", 2000);
     goDoCommand("cmd_redo");
 }, 'リドゥ');
