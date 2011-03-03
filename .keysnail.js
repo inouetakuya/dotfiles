@@ -126,6 +126,14 @@ local["^http://www.google.(co.jp|com)/reader/view/"] = [
     ["-", null]
 ];
 
+local["^http://b.hatena.ne.jp/"] = [
+    // navigation
+    ["j", null],
+    ["k", null],
+    ["o", null],
+    //["e", null],
+    ["b", null]
+];
 //}}%PRESERVE%
 // ========================================================================= //
 
