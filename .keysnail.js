@@ -118,6 +118,14 @@ key.setGlobalKey(['C-x', 'C-s'], function (ev) {
     saveDocument(window.content.document);
 }, 'ファイルを保存', true);
 
+key.setGlobalKey(['C-x', 'e'], function (aEvent, aArg) {
+    ext.exec("hok-start-foreground-mode", aArg);
+}, 'Hit a Hint を開始', true);
+
+key.setGlobalKey(['C-x', 'E'], function (aEvent, aArg) {
+    ext.exec("hok-start-background-mode", aArg);
+}, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
+
 key.setGlobalKey('C-s', function (ev) {
     command.iSearchForwardKs(ev);
 }, 'Emacs ライクなインクリメンタル検索', true);
@@ -145,14 +153,6 @@ key.setGlobalKey('C-M-l', function (ev) {
 key.setGlobalKey('C-M-h', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
-
-key.setGlobalKey(['C-x', 'e'], function (aEvent, aArg) {
-    ext.exec("hok-start-foreground-mode", aArg);
-}, 'Hit a Hint を開始', true);
-
-key.setGlobalKey(['C-x', 'E'], function (aEvent, aArg) {
-    ext.exec("hok-start-background-mode", aArg);
-}, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
 
 key.setViewKey('e', function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
@@ -230,6 +230,10 @@ key.setViewKey(['C-x', 'h'], function (ev) {
     goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
+key.setViewKey(['C-x', 'l'], function (ev, arg) {
+    ext.exec("prefer-ldrize-toggle-status", arg, ev);
+}, 'LDRize 優先状態の切り替え', true);
+
 key.setViewKey('f', function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
@@ -274,7 +278,6 @@ key.setEditKey(['C-x', 'r', 'y'], function (ev) {
     command.yankRectangle(ev.originalTarget, command.kill.buffer);
 }, '矩形ヤンク', true);
 
-// コントロールを押しながら @ を押すと C-` になる
 key.setEditKey([['C-i'], ['C-`']], function (ev) {
     command.setMark(ev);
 }, 'マークをセット', true);
@@ -283,7 +286,6 @@ key.setEditKey('C-o', function (ev) {
     command.openLine(ev);
 }, '行を開く (Open line)');
 
-// コントロールを押しながら \ を押すと C-| になる
 key.setEditKey('C-|', function (ev) {
     display.echoStatusBar("Redo!", 2000);
     goDoCommand("cmd_redo");
