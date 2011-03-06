@@ -300,7 +300,8 @@ key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = d.location.href;
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1']
+	.getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'URL をコピー');
 
@@ -308,7 +309,8 @@ key.setViewKey('C-M-t', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = d.title;
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1']
+	.getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'タイトルをコピー');
 
@@ -316,7 +318,8 @@ key.setViewKey('C-M-b', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = d.title + ("\n" + d.location.href);
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1']
+	.getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'URL とタイトルをコピー');
 
@@ -426,10 +429,7 @@ key.setEditKey(['C-x', 'r', 'd'], function (ev, arg) {
 }, '矩形削除', true);
 
 key.setEditKey(['C-x', 'r', 't'], function (ev) {
-    prompt.read("String rectangle: ", function (aStr, aInput) {
-        command.replaceRectangle(aInput, aStr);
-    },
-    ev.originalTarget);
+    prompt.read("String rectangle: ", function (aStr, aInput) {command.replaceRectangle(aInput, aStr);}, ev.originalTarget);
 }, '矩形置換', true);
 
 key.setEditKey(['C-x', 'r', 'o'], function (ev) {
@@ -444,6 +444,7 @@ key.setEditKey(['C-x', 'r', 'y'], function (ev) {
     command.yankRectangle(ev.originalTarget, command.kill.buffer);
 }, '矩形ヤンク', true);
 
+// コントロールを押しながら @ を押すと C-` になる
 key.setEditKey([['C-i'], ['C-`']], function (ev) {
     command.setMark(ev);
 }, 'マークをセット', true);
@@ -452,6 +453,7 @@ key.setEditKey('C-o', function (ev) {
     command.openLine(ev);
 }, '行を開く (Open line)');
 
+// コントロールを押しながら \ を押すと C-| になる
 key.setEditKey('C-|', function (ev) {
     display.echoStatusBar("Redo!", 2000);
     goDoCommand("cmd_redo");
@@ -517,16 +519,10 @@ key.setEditKey('C-M-y', function (ev) {
     if (!command.kill.ring.length) {
         return;
     }
-    let(ct = command.getClipboardText())(!command.kill.ring.length || ct != command.kill.ring[0]) && command.pushKillRing(ct);
-    prompt.selector({
-        message: "Paste:",
-        collection: command.kill.ring,
-        callback: function (i) {
-            if (i >= 0) {
-                key.insertText(command.kill.ring[i]);
-            }
-        }
-    });
+    let (ct = command.getClipboardText())
+    (!command.kill.ring.length || ct != command.kill.ring[0]) && command.pushKillRing(ct);
+    prompt.selector({message: "Paste:", collection: command.kill.ring,
+		     callback: function (i) {if (i >= 0) {key.insertText(command.kill.ring[i]);}}});
 }, '以前にコピーしたテキスト一覧から選択して貼り付け', true);
 
 key.setEditKey('C-w', function (ev) {
@@ -534,6 +530,11 @@ key.setEditKey('C-w', function (ev) {
     goDoCommand("cmd_delete");
     command.resetMark(ev);
 }, '選択中のテキストを切り取り (Kill region)', true);
+
+// タブを閉じる機能を使いたいので、EditKey にした
+key.setEditKey('M-w', function (ev) {
+    command.copyRegion(ev);
+}, '選択中のテキストをコピー');
 
 key.setCaretKey([['C-a'], ['^']], function (ev) {
     ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
@@ -636,7 +637,3 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
-
-key.setEditKey('M-w', function (ev) {
-    command.copyRegion(ev);
-}, '選択中のテキストをコピー');
