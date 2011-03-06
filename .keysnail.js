@@ -283,6 +283,15 @@ key.setGlobalKey('C-M-h', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
+key.setGlobalKey('C-O', function (ev, arg) {
+    var toolbox = document.getElementById("navigator-toolbox");
+    toolbox.hidden = !toolbox.hidden;
+    if (arg || !toolbox.hidden) {
+        var statusbar = document.getElementById("status-bar");
+        statusbar.hidden = toolbox.hidden;
+    }
+}, '擬似フルスクリーン状態を切り替え', true);
+
 key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
     var d = w.document;
@@ -623,3 +632,7 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
+
+key.setGlobalKey(['C-x', 'm'], function (ev) {
+    window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
+}, 'ウィンドウを最大化 / 元の大きさに戻す', true);
