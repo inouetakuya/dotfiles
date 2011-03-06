@@ -255,6 +255,10 @@ key.setGlobalKey(['C-x', 'E'], function (aEvent, aArg) {
     ext.exec("hok-start-background-mode", aArg);
 }, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
 
+key.setGlobalKey(['C-x', 'm'], function (ev) {
+    window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
+}, 'ウィンドウを最大化 / 元の大きさに戻す', true);
+
 key.setGlobalKey('C-s', function (ev) {
     command.iSearchForwardKs(ev);
 }, 'Emacs ライクなインクリメンタル検索', true);
@@ -633,6 +637,6 @@ key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
 
-key.setGlobalKey(['C-x', 'm'], function (ev) {
-    window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
-}, 'ウィンドウを最大化 / 元の大きさに戻す', true);
+key.setEditKey('M-w', function (ev) {
+    command.copyRegion(ev);
+}, '選択中のテキストをコピー');
