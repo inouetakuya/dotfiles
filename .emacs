@@ -50,6 +50,10 @@
 (global-set-key "\C-c<" 'uncomment-region)
 (global-set-key "\C-xl" 'goto-line)
 
+;; シフト + 矢印で範囲選択
+(setq pc-select-selection-keys-only t)
+(pc-selection-mode t) 
+
 ;; 行番号を表示
 (require 'linum)
 (global-linum-mode t)
