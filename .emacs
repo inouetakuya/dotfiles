@@ -74,3 +74,28 @@
 
 ;; フック
 (add-hook 'text-mode-hook 'jaspace-mode)
+
+;; フォント
+(if (eq window-system 'mac) (require 'carbon-font))
+(fixed-width-set-fontset "hiramaru" 14)
+
+;; ------------------------------------------------------------
+;; Color
+(if window-system (progn
+   (set-background-color "Black")
+   (set-foreground-color "LightGray")
+   (set-cursor-color "Gray")
+   (set-frame-parameter nil 'alpha 80)
+   ))
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+)
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+)
