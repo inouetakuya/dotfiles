@@ -26,5 +26,13 @@
 ;;   dired(Emacs 組み込みのファイラー)で選択しているファイルをEmacsWikiからインストールするコマンド 
 
 ;; ============================================================
+;; Emacs(中略)設定講座 その2「elisp のインストールと設定編」。 - 日々、とんは語る。
+;; http://d.hatena.ne.jp/tomoya/20090124/1232822594
+
+;; auto-complete
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+;; ============================================================
 ;; キーバインド（グローバル）
 (global-set-key "\C-h" 'delete-backward-char)
