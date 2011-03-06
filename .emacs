@@ -49,3 +49,28 @@
 (global-set-key "\C-c>" 'comment-region)
 (global-set-key "\C-c<" 'uncomment-region)
 (global-set-key "\C-xl" 'goto-line)
+
+;; 行番号を表示
+(require 'linum)
+(global-linum-mode t)
+
+;; 列番号を表示
+(column-number-mode t)
+
+;; 対応する括弧を光らせる
+(show-paren-mode t)
+
+;; jaspace を有効化
+(require 'jaspace)
+
+;; 全角空白を表示させる
+(setq jaspace-alternate-jaspace-string "□")
+
+;; 改行記号を表示させる
+(setq jaspace-alternate-eol-string "↓\n")
+
+;; タブを表示
+(setq jaspace-highlight-tabs t)
+
+;; フック
+(add-hook 'text-mode-hook 'jaspace-mode)
