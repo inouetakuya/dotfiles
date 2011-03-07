@@ -296,6 +296,9 @@ key.setGlobalKey('C-O', function (ev, arg) {
     }
 }, '擬似フルスクリーン状態を切り替え', true);
 
+
+// ---------- view ---------- //
+
 key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
     var d = w.document;
@@ -347,11 +350,11 @@ key.setViewKey([['C-p'], ['k']], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
 }, '一行スクロールアップ');
 
-key.setViewKey([['C-f'], ['.']], function (ev) {
+key.setViewKey('.', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
 }, '右へスクロール');
 
-key.setViewKey([['C-b'], [',']], function (ev) {
+key.setViewKey(',', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
 }, '左へスクロール');
 
@@ -363,19 +366,19 @@ key.setViewKey('C-v', function (ev) {
     goDoCommand("cmd_scrollPageDown");
 }, '一画面スクロールダウン');
 
-key.setViewKey([['M-<'], ['g']], function (ev) {
+key.setViewKey([['<'], ['g']], function (ev) {
     goDoCommand("cmd_scrollTop");
 }, 'ページ先頭へ移動', true);
 
-key.setViewKey([['M->'], ['G']], function (ev) {
+key.setViewKey([['>'], ['G']], function (ev) {
     goDoCommand("cmd_scrollBottom");
 }, 'ページ末尾へ移動', true);
 
-key.setViewKey('l', function (ev) {
+key.setViewKey([['C-f'],['l']], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
-key.setViewKey('h', function (ev) {
+key.setViewKey([['C-b'],['h']], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
@@ -414,6 +417,9 @@ key.setViewKey('M-p', function (ev) {
 key.setViewKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
+
+
+// ---------- edit ---------- //
 
 key.setEditKey(['C-x', 'h'], function (ev) {
     command.selectAll(ev);
@@ -535,6 +541,9 @@ key.setEditKey('C-w', function (ev) {
 key.setEditKey('M-w', function (ev) {
     command.copyRegion(ev);
 }, '選択中のテキストをコピー');
+
+
+// ---------- caret ---------- //
 
 key.setCaretKey([['C-a'], ['^']], function (ev) {
     ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
