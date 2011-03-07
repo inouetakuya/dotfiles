@@ -50,6 +50,9 @@
 (global-set-key "\C-c<" 'uncomment-region)
 (global-set-key "\C-xl" 'goto-line)
 
+(require 'redo)
+(global-set-key "\C-\\" 'redo)
+
 ;; シフト + 矢印で範囲選択
 (setq pc-select-selection-keys-only t)
 (pc-selection-mode t) 
@@ -80,17 +83,20 @@
 (add-hook 'text-mode-hook 'jaspace-mode)
 
 ;; フォント
+;; Carbon版 Emacs 22.1 のフォント設定
+;; http://macemacsjp.sourceforge.jp/matsuan/FontSettingJp.html
 (if (eq window-system 'mac) (require 'carbon-font))
 (fixed-width-set-fontset "hiramaru" 14)
 
 ;; ------------------------------------------------------------
 ;; Color
 (if window-system (progn
-   (set-background-color "Black")
-   (set-foreground-color "LightGray")
-   (set-cursor-color "Gray")
-   (set-frame-parameter nil 'alpha 80)
-   ))
+    (set-background-color "Black")
+    (set-foreground-color "LightGray")
+    (set-cursor-color "Gray")
+    (set-frame-parameter nil 'alpha 80)
+    )
+)
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
