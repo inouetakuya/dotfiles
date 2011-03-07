@@ -296,8 +296,11 @@ key.setGlobalKey('C-O', function (ev, arg) {
     }
 }, '擬似フルスクリーン状態を切り替え', true);
 
-
-// ---------- view ---------- //
+key.setGlobalKey(['C-x', '.'], function (ev, arg) {
+    let(elem = document.commandDispatcher.focusedElement) elem && elem.blur();
+    gBrowser.focus();
+    content.focus();
+}, 'コンテンツへフォーカス', true);
 
 key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
@@ -374,11 +377,11 @@ key.setViewKey([['>'], ['G']], function (ev) {
     goDoCommand("cmd_scrollBottom");
 }, 'ページ末尾へ移動', true);
 
-key.setViewKey([['C-f'],['l']], function (ev) {
+key.setViewKey([['C-f'], ['l']], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
-key.setViewKey([['C-b'],['h']], function (ev) {
+key.setViewKey([['C-b'], ['h']], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
@@ -418,9 +421,6 @@ key.setViewKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
 
-
-// ---------- edit ---------- //
-
 key.setEditKey(['C-x', 'h'], function (ev) {
     command.selectAll(ev);
 }, '全て選択', true);
@@ -435,7 +435,8 @@ key.setEditKey(['C-x', 'r', 'd'], function (ev, arg) {
 }, '矩形削除', true);
 
 key.setEditKey(['C-x', 'r', 't'], function (ev) {
-    prompt.read("String rectangle: ", function (aStr, aInput) {command.replaceRectangle(aInput, aStr);}, ev.originalTarget);
+    prompt.read("String rectangle: ",
+		function (aStr, aInput) {command.replaceRectangle(aInput, aStr);}, ev.originalTarget);
 }, '矩形置換', true);
 
 key.setEditKey(['C-x', 'r', 'o'], function (ev) {
@@ -450,7 +451,6 @@ key.setEditKey(['C-x', 'r', 'y'], function (ev) {
     command.yankRectangle(ev.originalTarget, command.kill.buffer);
 }, '矩形ヤンク', true);
 
-// コントロールを押しながら @ を押すと C-` になる
 key.setEditKey([['C-i'], ['C-`']], function (ev) {
     command.setMark(ev);
 }, 'マークをセット', true);
@@ -459,7 +459,6 @@ key.setEditKey('C-o', function (ev) {
     command.openLine(ev);
 }, '行を開く (Open line)');
 
-// コントロールを押しながら \ を押すと C-| になる
 key.setEditKey('C-|', function (ev) {
     display.echoStatusBar("Redo!", 2000);
     goDoCommand("cmd_redo");
@@ -525,8 +524,8 @@ key.setEditKey('C-M-y', function (ev) {
     if (!command.kill.ring.length) {
         return;
     }
-    let (ct = command.getClipboardText())
-    (!command.kill.ring.length || ct != command.kill.ring[0]) && command.pushKillRing(ct);
+    let (ct = command.getClipboardText()) (!command.kill.ring.length || ct != command.kill.ring[0]) &&
+        command.pushKillRing(ct);
     prompt.selector({message: "Paste:", collection: command.kill.ring,
 		     callback: function (i) {if (i >= 0) {key.insertText(command.kill.ring[i]);}}});
 }, '以前にコピーしたテキスト一覧から選択して貼り付け', true);
@@ -537,13 +536,9 @@ key.setEditKey('C-w', function (ev) {
     command.resetMark(ev);
 }, '選択中のテキストを切り取り (Kill region)', true);
 
-// タブを閉じる機能を使いたいので、EditKey にした
 key.setEditKey('M-w', function (ev) {
     command.copyRegion(ev);
 }, '選択中のテキストをコピー');
-
-
-// ---------- caret ---------- //
 
 key.setCaretKey([['C-a'], ['^']], function (ev) {
     ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
