@@ -73,7 +73,8 @@ local["^https?://mail.google.com/mail/"] = [
     ['I', null],
     ['U', null],
     ['C-s', null],
-    ['T', null]
+    ['T', null],
+    ['l', null]
 ];
 
 local["^http://www.google.(co.jp|com)/reader/view/"] = [
