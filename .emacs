@@ -17,7 +17,7 @@
 ;; その後は、.emacs に設定を書くだけです。
 ;; なので、今後は、ほぼ設定を書くという作業だけに集中できる様になりました
 
-;;参考: install-elisp で使えるコマンド
+;; 参考: install-elisp で使えるコマンド
 ;; M-x install-elisp
 ;;   URL を入力して、Elisp をインストールするコマンド
 ;; M-x install-elisp-from-emacswiki
@@ -109,3 +109,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
 )
+
+
+

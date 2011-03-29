@@ -260,6 +260,12 @@ key.setGlobalKey(['C-x', 'm'], function (ev) {
     window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
 }, 'ウィンドウを最大化 / 元の大きさに戻す', true);
 
+key.setGlobalKey(['C-x', '.'], function (ev, arg) {
+    let (elem = document.commandDispatcher.focusedElement) elem && elem.blur();
+    gBrowser.focus();
+    content.focus();
+}, 'コンテンツへフォーカス', true);
+
 key.setGlobalKey('C-s', function (ev) {
     command.iSearchForwardKs(ev);
 }, 'Emacs ライクなインクリメンタル検索', true);
@@ -297,18 +303,11 @@ key.setGlobalKey('C-O', function (ev, arg) {
     }
 }, '擬似フルスクリーン状態を切り替え', true);
 
-key.setGlobalKey(['C-x', '.'], function (ev, arg) {
-    let(elem = document.commandDispatcher.focusedElement) elem && elem.blur();
-    gBrowser.focus();
-    content.focus();
-}, 'コンテンツへフォーカス', true);
-
 key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = d.location.href;
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1']
-	.getService(Components.interfaces.nsIClipboardHelper);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'URL をコピー');
 
@@ -316,8 +315,7 @@ key.setViewKey('C-M-t', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = d.title;
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1']
-	.getService(Components.interfaces.nsIClipboardHelper);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'タイトルをコピー');
 
@@ -325,16 +323,15 @@ key.setViewKey('C-M-b', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = d.title + ("\n" + d.location.href);
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1']
-	.getService(Components.interfaces.nsIClipboardHelper);
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'URL とタイトルをコピー');
 
-key.setViewKey('e', function (aEvent, aArg) {
+key.setViewKey([['e'], ['SPC']], function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hit a Hint を開始', true);
 
-key.setViewKey('E', function (aEvent, aArg) {
+key.setViewKey([['E'], ['S-SPC']], function (aEvent, aArg) {
     ext.exec("hok-start-background-mode", aArg);
 }, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
 
@@ -436,8 +433,7 @@ key.setEditKey(['C-x', 'r', 'd'], function (ev, arg) {
 }, '矩形削除', true);
 
 key.setEditKey(['C-x', 'r', 't'], function (ev) {
-    prompt.read("String rectangle: ",
-		function (aStr, aInput) {command.replaceRectangle(aInput, aStr);}, ev.originalTarget);
+    prompt.read("String rectangle: ", function (aStr, aInput) {command.replaceRectangle(aInput, aStr);}, ev.originalTarget);
 }, '矩形置換', true);
 
 key.setEditKey(['C-x', 'r', 'o'], function (ev) {
@@ -527,8 +523,7 @@ key.setEditKey('C-M-y', function (ev) {
     }
     let (ct = command.getClipboardText()) (!command.kill.ring.length || ct != command.kill.ring[0]) &&
         command.pushKillRing(ct);
-    prompt.selector({message: "Paste:", collection: command.kill.ring,
-		     callback: function (i) {if (i >= 0) {key.insertText(command.kill.ring[i]);}}});
+    prompt.selector({message: "Paste:", collection: command.kill.ring, callback: function (i) {if (i >= 0) {key.insertText(command.kill.ring[i]);}}});
 }, '以前にコピーしたテキスト一覧から選択して貼り付け', true);
 
 key.setEditKey('C-w', function (ev) {
