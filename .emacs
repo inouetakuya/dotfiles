@@ -32,6 +32,10 @@
 ;; auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(setq ac-auto-start t)
+;; (setq ac-auto-start 3)
+(global-set-key "\M-/" 'ac-start)
+(define-key ac-complete-mode-map "\M-/" 'ac-stop)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 
