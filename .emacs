@@ -50,6 +50,12 @@
 (setq transient-mark-mode t)
 
 ;; ============================================================
+;; 入門 GNU Emacs
+
+;; タブではなくスペースを挿入する
+(setq-default indent-tabs-mode nil)
+
+;; ============================================================
 ;; キーバインド（グローバル）
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-c>" 'comment-region)
