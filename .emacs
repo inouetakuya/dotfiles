@@ -129,5 +129,16 @@
   ;; If there is more than one, they won't work right.
 )
 
+;; 起動時のフレームサイズ
+(setq initial-frame-alist
+    (append (list
+    '(width . 120)
+    '(height . 50)
+    '(top . 50)
+;;    '(left . 0)
+    )
+    initial-frame-alist))
 
+;; デフォルトのフレームサイズを、起動時のフレームサイズと同一にする
+(setq default-frame-alist initial-frame-alist)
 
