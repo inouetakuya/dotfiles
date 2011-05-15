@@ -62,6 +62,13 @@
 (global-set-key "\C-c<" 'uncomment-region)
 (global-set-key "\C-xl" 'goto-line)
 
+;; カーソル位置から行頭まで削除する
+(defun backward-kill-line (arg)
+  "Kill chars backward until encountering the end of a line."
+  (interactive "p")
+  (kill-line 0))
+(global-set-key (kbd "C-u") 'backward-kill-line)
+
 (require 'redo)
 (global-set-key "\C-\\" 'redo)
 
