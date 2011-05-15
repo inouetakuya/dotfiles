@@ -32,6 +32,8 @@
 ;; auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(define-key ac-complete-mode-map "\C-n" 'ac-next)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
 
 ;; ============================================================
 ;; Emacs設定講座 その3「scratch バッファと eval(評価)」。 - 日々、とんは語る。
