@@ -448,10 +448,6 @@ key.setEditKey(['C-x', 'r', 'y'], function (ev) {
     command.yankRectangle(ev.originalTarget, command.kill.buffer);
 }, '矩形ヤンク', true);
 
-key.setEditKey([['C-i'], ['C-`']], function (ev) {
-    command.setMark(ev);
-}, 'マークをセット', true);
-
 key.setEditKey('C-o', function (ev) {
     command.openLine(ev);
 }, '行を開く (Open line)');
@@ -602,10 +598,6 @@ key.setCaretKey('z', function (ev) {
     command.recenter(ev);
 }, 'キャレットの位置までスクロール');
 
-key.setCaretKey([['C-`'], ['C-@']], function (ev) {
-    command.setMark(ev);
-}, 'マークをセット', true);
-
 key.setCaretKey(':', function (ev, arg) {
     shell.input(null, arg);
 }, 'コマンドの実行', true);
@@ -629,11 +621,3 @@ key.setCaretKey(['C-x', 'h'], function (ev) {
 key.setCaretKey('f', function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
-
-key.setCaretKey('M-p', function (ev) {
-    command.walkInputElement(command.elementsRetrieverButton, true, true);
-}, '次のボタンへフォーカスを当てる');
-
-key.setCaretKey('M-n', function (ev) {
-    command.walkInputElement(command.elementsRetrieverButton, false, true);
-}, '前のボタンへフォーカスを当てる');
