@@ -60,7 +60,7 @@
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-c>" 'comment-region)
 (global-set-key "\C-c<" 'uncomment-region)
-(global-set-key "\C-xl" 'goto-line)
+(global-set-key "\C-xg" 'goto-line)
 
 ;; カーソル位置から行頭まで削除する
 (defun backward-kill-line (arg)
@@ -135,7 +135,7 @@
     '(width . 120)
     '(height . 50)
     '(top . 50)
-;;    '(left . 0)
+    '(left . 50)
     )
     initial-frame-alist))
 
