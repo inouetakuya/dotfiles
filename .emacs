@@ -142,6 +142,9 @@
 ;; デフォルトのフレームサイズを、起動時のフレームサイズと同一にする
 (setq default-frame-alist initial-frame-alist)
 
+;; ビープ音を消す
+(setq visible-bell t)
+
 ;; ============================================================
 ;; Elscreen
 (load "elscreen" "ElScreen" t)
