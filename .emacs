@@ -56,6 +56,14 @@
 (setq-default indent-tabs-mode nil)
 
 ;; ============================================================
+;;【コラム】OS X ハッキング! (79) Carbon Emacsの設定(1) | パソコン | マイコミジャーナル
+;; http://journal.mycom.co.jp/column/osx/079/index.html
+
+;; パスを通す
+(setenv "PATH"
+        (concat '"/usr/local/git/bin:" (getenv "PATH")))
+
+;; ============================================================
 ;; キーバインド（グローバル）
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-c>" 'comment-region)
