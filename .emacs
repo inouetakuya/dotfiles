@@ -67,6 +67,13 @@
 ;; Git を使うときに日本語でも文字化けしないようにする
 (setenv "LANG" "ja_JP.UTF-8")
 
+;; 論理行ではなく物理行で移動する
+(require 'physical-line)
+(setq-default physical-line-mode t)
+
+;; C-x 3 とかしたときにも行の折り返しをする
+(setq truncate-partial-width-windows nil)
+
 ;; キーバインド（グローバル）
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-c>" 'comment-region)
