@@ -64,6 +64,9 @@
         (concat '"/usr/local/git/bin:" (getenv "PATH")))
 
 ;; ============================================================
+;; Git を使うときに日本語でも文字化けしないようにする
+(setenv "LANG" "ja_JP.UTF-8")
+
 ;; キーバインド（グローバル）
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-c>" 'comment-region)
