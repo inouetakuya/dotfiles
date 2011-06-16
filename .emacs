@@ -59,9 +59,9 @@
 ;;【コラム】OS X ハッキング! (79) Carbon Emacsの設定(1) | パソコン | マイコミジャーナル
 ;; http://journal.mycom.co.jp/column/osx/079/index.html
 
-;; パスを通す
+;; MacPorts のパスを優先させる
 (setenv "PATH"
-        (concat '"/usr/local/git/bin:" (getenv "PATH")))
+        (concat '"/opt/local/bin:" (getenv "PATH")))
 
 ;; ============================================================
 ;; Git を使うときに日本語でも文字化けしないようにする
