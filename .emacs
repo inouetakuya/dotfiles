@@ -119,6 +119,9 @@
 ;; フック
 (add-hook 'text-mode-hook 'jaspace-mode)
 
+;; 印刷のフォントサイズは、フォント設定よりも上部に書く
+(setq mac-print-font-size 10)
+
 ;; フォント
 ;; Carbon版 Emacs 22.1 のフォント設定
 ;; http://macemacsjp.sourceforge.jp/matsuan/FontSettingJp.html
