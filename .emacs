@@ -61,7 +61,9 @@
 
 ;; MacPorts のパスを優先させる
 (setenv "PATH"
-        (concat '"/opt/local/bin:" (getenv "PATH")))
+        (concat '"/opt/local/bin:"    ;; MacPorts へのパス
+                '"/usr/local/bin:"    ;; Django の django-admin.py へのシンボリックリンク
+                (getenv "PATH")))
 
 ;; ============================================================
 ;; Git を使うときに日本語でも文字化けしないようにする
