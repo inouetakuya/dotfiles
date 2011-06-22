@@ -87,6 +87,15 @@
 (require 'multi-term)
 (setq multi-term-program shell-file-name)
 
+;; Emacs テクニックバイブル P189
+;; M-x shell にもエスケープシーケンスによる色が付くようにする
+;; >> git diff してもカラー表示されない
+;; 下記の記事とかみたら、いろいろと大変そうだったので見送った
+;; Emacs の shell-mode で zsh を有効活用 - mooz deceives you
+;; http://d.hatena.ne.jp/mooz/20090613/p1
+;; (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; ============================================================
 ;; 論理行ではなく物理行で移動する
 (require 'physical-line)
 (setq-default physical-line-mode t)
