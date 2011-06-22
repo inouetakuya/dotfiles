@@ -74,6 +74,19 @@
 ;; ただし、Emacs 22.3 だと、部分的に文字化けする。Emacs 23.3 なら、文字化けしない
 (setq locale-coding-system 'utf-8)
 
+;; Emacs 上で快適に Bash や Zsh を利用する設定 : 紹介マニア
+;; http://sakito.jp/emacs/emacsshell.html
+;; multi-term は term を拡張したモードになります。
+;; term は確かに優れたモードですがいくつかの問題も存在しています。
+;;     * 複数起動ができません
+;;     * Emacs の標準的なキーを多数奪ってしまいます
+;;     * exit してもバッファが消えません
+;;     * Emacs 終了時に term 内の shell を終了していないと自動で終了してくれません
+;;     * デバッグプログラムのための専用ウィンドウを持ちません
+;; これらを解決するために multi-term.el を利用します。
+(require 'multi-term)
+(setq multi-term-program shell-file-name)
+
 ;; 論理行ではなく物理行で移動する
 (require 'physical-line)
 (setq-default physical-line-mode t)
