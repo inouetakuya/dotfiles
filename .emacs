@@ -69,6 +69,11 @@
 ;; Git を使うときに日本語でも文字化けしないようにする
 (setenv "LANG" "ja_JP.UTF-8")
 
+;; ansi-term でも日本語が文字化けしないようにする
+;; 一時的な設定変更は（C-c 押した後）M-x set-locale-environment >> utf-8
+;; ただし、Emacs 22.3 だと、部分的に文字化けする。Emacs 23.3 なら、文字化けしない
+(setq locale-coding-system 'utf-8)
+
 ;; 論理行ではなく物理行で移動する
 (require 'physical-line)
 (setq-default physical-line-mode t)
