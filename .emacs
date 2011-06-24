@@ -167,8 +167,8 @@
 ;; フォント
 ;; Carbon版 Emacs 22.1 のフォント設定
 ;; http://macemacsjp.sourceforge.jp/matsuan/FontSettingJp.html
-(if (eq window-system 'mac) (require 'carbon-font))
-(fixed-width-set-fontset "hiramaru" 14)
+;; (if (eq window-system 'mac) (require 'carbon-font))
+;; (fixed-width-set-fontset "hiramaru" 14)
 
 ;; ------------------------------------------------------------
 ;; Color
@@ -210,7 +210,7 @@
 
 ;; ============================================================
 ;; Elscreen
-(load "elscreen" "ElScreen" t)
+;; (load "elscreen" "ElScreen" t)
 
 ;; Usage
 ;; -----
