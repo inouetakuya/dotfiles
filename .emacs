@@ -96,6 +96,10 @@
 ;; (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; ============================================================
+;; git-commit-modeの導入 - Life is very short
+;; http://d.hatena.ne.jp/syohex/20110308/1299596133
+(require 'git-commit)
+
 ;; 論理行ではなく物理行で移動する
 (require 'physical-line)
 (setq-default physical-line-mode t)
