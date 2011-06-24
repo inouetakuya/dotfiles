@@ -100,6 +100,15 @@
 ;; http://d.hatena.ne.jp/syohex/20110308/1299596133
 (require 'git-commit)
 
+;; emacsclientを使おう - Life is very short
+;; http://d.hatena.ne.jp/syohex/20101224/1293206906
+
+;; Gitのcore.editorにEmacsを指定する試行錯誤(Macの場合) (Kanasansoft Web Lab.)
+;; http://www.kanasansoft.com/weblab/2010/03/git_core_editor_emacs_mac.html
+(require 'server)
+(server-start)
+
+;; ============================================================
 ;; 論理行ではなく物理行で移動する
 (require 'physical-line)
 (setq-default physical-line-mode t)
