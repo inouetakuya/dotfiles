@@ -99,6 +99,9 @@
 ;; git-commit-modeの導入 - Life is very short
 ;; http://d.hatena.ne.jp/syohex/20110308/1299596133
 (require 'git-commit)
+(set-face-foreground 'git-commit-summary-face nil)
+(set-face-bold-p     'git-commit-summary-face nil)
+(set-face-foreground 'git-commit-nonempty-second-line-face nil)
 
 ;; emacsclientを使おう - Life is very short
 ;; http://d.hatena.ne.jp/syohex/20101224/1293206906
