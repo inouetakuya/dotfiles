@@ -105,8 +105,9 @@
 
 ;; Gitのcore.editorにEmacsを指定する試行錯誤(Macの場合) (Kanasansoft Web Lab.)
 ;; http://www.kanasansoft.com/weblab/2010/03/git_core_editor_emacs_mac.html
-(require 'server)
-(server-start)
+(when (eq window-system 'mac)
+  (require 'server)
+  (server-start))
 
 ;; ============================================================
 ;; 論理行ではなく物理行で移動する
@@ -167,8 +168,9 @@
 ;; フォント
 ;; Carbon版 Emacs 22.1 のフォント設定
 ;; http://macemacsjp.sourceforge.jp/matsuan/FontSettingJp.html
-;; (if (eq window-system 'mac) (require 'carbon-font))
-;; (fixed-width-set-fontset "hiramaru" 14)
+(when (eq window-system 'mac)
+  (require 'carbon-font)
+  (fixed-width-set-fontset "hiramaru" 14))
 
 ;; ------------------------------------------------------------
 ;; Color
@@ -210,7 +212,8 @@
 
 ;; ============================================================
 ;; Elscreen
-;; (load "elscreen" "ElScreen" t)
+(when (eq window-system 'mac)
+  (load "elscreen" "ElScreen" t))
 
 ;; Usage
 ;; -----
