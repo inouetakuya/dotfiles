@@ -113,6 +113,9 @@
   (server-start))
 
 ;; ============================================================
+;; 起動時にロゴを表示させない
+(setq inhibit-startup-message t)
+
 ;; 論理行ではなく物理行で移動する
 (require 'physical-line)
 (setq-default physical-line-mode t)
