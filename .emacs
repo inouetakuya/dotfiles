@@ -59,11 +59,12 @@
 ;;【コラム】OS X ハッキング! (79) Carbon Emacsの設定(1) | パソコン | マイコミジャーナル
 ;; http://journal.mycom.co.jp/column/osx/079/index.html
 
-;; MacPorts のパスを優先させる
-(setenv "PATH"
-        (concat '"/opt/local/bin:"    ;; MacPorts へのパス
-                '"/usr/local/bin:"    ;; Django の django-admin.py へのシンボリックリンク
-                (getenv "PATH")))
+;; 110718 MacPorts から Homebrew に乗り換えたので不要となった
+;; ;; MacPorts のパスを優先させる
+;; (setenv "PATH"
+;;         (concat '"/opt/local/bin:"    ;; MacPorts へのパス
+;;                 '"/usr/local/bin:"    ;; Django の django-admin.py へのシンボリックリンク
+;;                 (getenv "PATH")))
 
 ;; ============================================================
 ;; Git を使うときに日本語でも文字化けしないようにする
