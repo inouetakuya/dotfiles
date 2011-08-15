@@ -135,6 +135,32 @@ local["^http://b.hatena.ne.jp/"] = [
     //["e", null],
     ["b", null]
 ];
+
+// vi キーバインドにするメリットがなかったので、
+// デフォルトの Emacs キーバインドを使用する
+//
+// tanything のキーバインドを追加
+// plugins.options["tanything_opt.keymap"] = {
+//     "C-z"   : "prompt-toggle-edit-mode",
+//     "SPC"   : "prompt-next-page",
+//     "b"     : "prompt-previous-page",
+//     "j"     : "prompt-next-completion",
+//     "k"     : "prompt-previous-completion",
+//     "g"     : "prompt-beginning-of-candidates",
+//     "G"     : "prompt-end-of-candidates",
+//     "D"     : "prompt-cancel",
+//     // Tanything specific actions
+//     "O"     : "localOpen",
+//     "q"     : "localClose",
+//     "p"     : "localLeftclose",
+//     "n"     : "localRightclose",
+//     "a"     : "localAllclose",
+//     "d"     : "localDomainclose",
+//     "c"     : "localClipUT",
+//     "C"     : "localClipU",
+//     "e"     : "localMovetoend",
+//     "p"     : "localTogglePin"
+// };
 //}}%PRESERVE%
 // ========================================================================= //
 
@@ -302,6 +328,10 @@ key.setGlobalKey('C-O', function (ev, arg) {
         statusbar.hidden = toolbox.hidden;
     }
 }, '擬似フルスクリーン状態を切り替え', true);
+
+key.setViewKey("t", function (ev, arg) {
+    ext.exec("tanything", arg);
+}, "タブを一覧表示", true);
 
 key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
