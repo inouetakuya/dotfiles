@@ -228,9 +228,10 @@ key.setGlobalKey('C-m', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RETURN, true);
 }, 'リターンコードを生成');
 
-key.setGlobalKey(['C-x', 'l'], function (ev) {
-    command.focusToById("urlbar");
-}, 'ロケーションバーへフォーカス', true);
+// "M-l" を使うのでコメントアウト
+// key.setGlobalKey(['C-x', 'l'], function (ev) {
+//     command.focusToById("urlbar");
+// }, 'ロケーションバーへフォーカス', true);
 
 key.setGlobalKey(['C-x', 'g'], function (ev) {
     command.focusToById("searchbar");
@@ -335,11 +336,15 @@ key.setGlobalKey(["C-x", ";"], function (ev, arg) {
     ext.exec("list-hateb-items", arg);
 }, "はてなブックマークのアイテムを一覧表示", true);
 
-key.setViewKey("c", function (ev, arg) {
-    ext.exec("list-hateb-comments", arg);
-}, "はてなブックマークのコメントを一覧表示", true);
+key.setGlobalKey(["C-x", "b"], function (ev, arg) {
+    ext.exec("bmany-list-all-bookmarks", arg, ev);
+}, "ブックマークを一覧表示");
 
-key.setViewKey("t", function (ev, arg) {
+key.setGlobalKey(["C-x", "l"], function (ev, arg) {
+    ext.exec("bmany-list-toolbar-bookmarks", arg, ev);
+}, "ツールバーのブックマークを一覧表示");
+
+key.setGlobalKey(["C-x", "t"], function (ev, arg) {
     ext.exec("tanything", arg);
 }, "タブを一覧表示", true);
 
@@ -443,7 +448,7 @@ key.setViewKey(['C-x', 'h'], function (ev) {
     goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
-key.setViewKey(['C-x', 'l'], function (ev, arg) {
+key.setViewKey('C-l', function (ev, arg) {
     ext.exec("prefer-ldrize-toggle-status", arg, ev);
 }, 'LDRize 優先状態の切り替え', true);
 
