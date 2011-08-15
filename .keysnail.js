@@ -161,6 +161,8 @@ local["^http://b.hatena.ne.jp/"] = [
 //     "e"     : "localMovetoend",
 //     "p"     : "localTogglePin"
 // };
+
+plugins.options["hatebnail.list_bookmarks_limit"] = 9999;
 //}}%PRESERVE%
 // ========================================================================= //
 
@@ -328,6 +330,14 @@ key.setGlobalKey('C-O', function (ev, arg) {
         statusbar.hidden = toolbox.hidden;
     }
 }, '擬似フルスクリーン状態を切り替え', true);
+
+key.setGlobalKey(["C-x", ";"], function (ev, arg) {
+    ext.exec("list-hateb-items", arg);
+}, "はてなブックマークのアイテムを一覧表示", true);
+
+key.setViewKey("c", function (ev, arg) {
+    ext.exec("list-hateb-comments", arg);
+}, "はてなブックマークのコメントを一覧表示", true);
 
 key.setViewKey("t", function (ev, arg) {
     ext.exec("tanything", arg);
