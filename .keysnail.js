@@ -348,6 +348,10 @@ key.setGlobalKey(["C-x", "t"], function (ev, arg) {
     ext.exec("tanything", arg);
 }, "タブを一覧表示", true);
 
+key.setGlobalKey(["C-c", "h"], function (ev, arg) {
+    ext.exec("history-show", arg);
+}, "履歴リストを表示", true);
+
 key.setViewKey('C-M-u', function (ev, arg) {
     var w = window._content;
     var d = w.document;
