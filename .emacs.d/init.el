@@ -124,11 +124,9 @@
 ;; C-x 3 とかしたときにも行の折り返しをする
 (setq truncate-partial-width-windows nil)
 
-;; キーバインド（グローバル）
-(global-set-key "\C-h" 'delete-backward-char)
-(global-set-key "\C-c>" 'comment-region)
-(global-set-key "\C-c<" 'uncomment-region)
-(global-set-key "\C-xg" 'goto-line)
+;; キーバインド
+;; (setq load-path (cons "~/.emacs.d/init.d" load-path))
+(load "~/.emacs.d/init.d/keybinds.el")
 
 ;; カーソル位置から行頭まで削除する
 (defun backward-kill-line (arg)
