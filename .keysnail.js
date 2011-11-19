@@ -289,7 +289,7 @@ key.setGlobalKey(['C-x', 'm'], function (ev) {
     window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
 }, 'ウィンドウを最大化 / 元の大きさに戻す', true);
 
-key.setGlobalKey(['C-x', '.'], function (ev, arg) {
+key.setGlobalKey([['C-x', '.'], ['C-.']], function (ev, arg) {
     let (elem = document.commandDispatcher.focusedElement) elem && elem.blur();
     gBrowser.focus();
     content.focus();
@@ -332,23 +332,23 @@ key.setGlobalKey('C-O', function (ev, arg) {
     }
 }, '擬似フルスクリーン状態を切り替え', true);
 
-key.setGlobalKey(["C-x", ";"], function (ev, arg) {
+key.setGlobalKey([['C-x', ';'], ["C-'"]], function (ev, arg) {
     ext.exec("list-hateb-items", arg);
 }, "はてなブックマークのアイテムを一覧表示", true);
 
-key.setGlobalKey(["C-x", "b"], function (ev, arg) {
+key.setGlobalKey(['C-x', 'b'], function (ev, arg) {
     ext.exec("bmany-list-all-bookmarks", arg, ev);
 }, "ブックマークを一覧表示");
 
-key.setGlobalKey(["C-x", "l"], function (ev, arg) {
+key.setGlobalKey([['C-x', 'l'], ['C-;']], function (ev, arg) {
     ext.exec("bmany-list-toolbar-bookmarks", arg, ev);
 }, "ツールバーのブックマークを一覧表示");
 
-key.setGlobalKey(["C-x", "t"], function (ev, arg) {
+key.setGlobalKey([['C-x', 't'], ['C-t']], function (ev, arg) {
     ext.exec("tanything", arg);
 }, "タブを一覧表示", true);
 
-key.setGlobalKey(["C-c", "h"], function (ev, arg) {
+key.setGlobalKey([['C-c', 'h'], ['C-,']], function (ev, arg) {
     ext.exec("history-show", arg);
 }, "履歴リストを表示", true);
 
