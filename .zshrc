@@ -67,6 +67,12 @@ setopt list_packed              # リストを詰めて表示
 setopt nolistbeep               # 補完候補表示時などにビープ音を鳴らさない
 
 
+# 漢のzsh (24) グッバイ野郎ども! コピペではじめるzshファイナル | エンタープライズ | マイナビニュース
+# http://news.mynavi.jp/column/zsh/024/index.html
+alias la="ls -a"
+alias ll="ls -l"
+
+
 # ウノウラボ by Zynga Japan: zshはじめました。
 # http://labs.unoh.net/2010/05/zsh.html
 
