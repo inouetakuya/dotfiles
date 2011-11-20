@@ -36,6 +36,15 @@ kterm*|xterm*)
 esac
 
 
+# 漢のzsh (3) 同じことを2度するなんて…… 自分の過去は利用しましょう | エンタープライズ | マイナビニュース
+# http://news.mynavi.jp/column/zsh/003/index.html
+HISTFILE=~/.zsh_history         # history ファイル
+HISTSIZE=10000                  # ファイルサイズ
+SAVEHIST=10000                  # save する量
+setopt hist_ignore_dups         # 重複を記録しない
+setopt share_history            # 履歴ファイルを共有
+
+
 # ウノウラボ by Zynga Japan: zshはじめました。
 # http://labs.unoh.net/2010/05/zsh.html
 
@@ -56,12 +65,7 @@ setopt list_types               # 補完一覧ファイル種別表示
 
 
 # 履歴
-HISTFILE=~/.zsh_history         # history ファイル
-HISTSIZE=10000                  # ファイルサイズ
-SAVEHIST=10000                  # save する量
-setopt hist_ignore_dups         # 重複を記録しない
 setopt hist_reduce_blanks       # スペース排除
-setopt share_history            # 履歴ファイルを共有
 setopt EXTENDED_HISTORY         # zsh の開始終了を記録
 
 
