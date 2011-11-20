@@ -1,13 +1,13 @@
 # Created by newuser for 4.3.12
 
 
-# 漢のzsh (1) 最強のシェル、それは「zsh」
+# 漢のzsh (1) 最強のシェル、それは「zsh」 | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/001/index.html
 autoload -U compinit            # 補完機能
 compinit
 
 
-# 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね
+# 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/002/index.html
 case ${UID} in
 0)
@@ -45,6 +45,18 @@ setopt hist_ignore_dups         # 重複を記録しない
 setopt share_history            # 履歴ファイルを共有
 
 
+# 漢のzsh (4) コマンド履歴の検索～EmacsとVi、どっちも設定できるぜzsh | エンタープライズ | マイナビニュース
+# http://news.mynavi.jp/column/zsh/004/index.html
+bindkey -e                      # emacs ライクなキーバインド
+
+# 履歴検索機能のショートカット設定
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+
 # ウノウラボ by Zynga Japan: zshはじめました。
 # http://labs.unoh.net/2010/05/zsh.html
 
@@ -52,7 +64,7 @@ setopt share_history            # 履歴ファイルを共有
 PS1="[@${HOST%%.*} %1~]%(!.#.$) " # この辺は好み
 setopt transient_rprompt        # 右側まで入力がきたら時間を消す
 setopt prompt_subst             # 便利なプロント
-bindkey -e                      # emacs ライクなキーバインド
+
 
 export LANG=ja_JP.UTF-8         # 日本語環境
 export EDITOR=emacs             # エディタは emacs
@@ -67,14 +79,6 @@ setopt list_types               # 補完一覧ファイル種別表示
 # 履歴
 setopt hist_reduce_blanks       # スペース排除
 setopt EXTENDED_HISTORY         # zsh の開始終了を記録
-
-
-# history 操作まわり
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
 
 
 # alias
