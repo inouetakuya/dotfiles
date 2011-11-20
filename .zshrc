@@ -9,6 +9,7 @@ compinit
 
 # 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/002/index.html
+export LANG=ja_JP.UTF-8         # 日本語環境
 case ${UID} in
 0)
     PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
@@ -57,6 +58,15 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 
+# 漢のzsh (5) 「あーっ!」というそのときのために - 備えあれば憂いなしの設定集 | エンタープライズ | マイナビニュース
+# http://news.mynavi.jp/column/zsh/005/index.html
+setopt auto_cd                  # ディレクトリ名で cd できる
+setopt auto_pushd               # 移動したディレクトリを記録しておく
+setopt correct                  # コマンド名が間違っている場合には修正
+setopt list_packed              # リストを詰めて表示
+setopt nolistbeep               # 補完候補表示時などにビープ音を鳴らさない
+
+
 # ウノウラボ by Zynga Japan: zshはじめました。
 # http://labs.unoh.net/2010/05/zsh.html
 
@@ -66,13 +76,9 @@ setopt transient_rprompt        # 右側まで入力がきたら時間を消す
 setopt prompt_subst             # 便利なプロント
 
 
-export LANG=ja_JP.UTF-8         # 日本語環境
 export EDITOR=emacs             # エディタは emacs
 
-setopt autopushd                # cd の履歴を表示
 setopt pushd_ignore_dups        # 同ディレクトリを履歴に追加しない
-setopt auto_cd                  # 自動的にディレクトリ移動
-setopt list_packed              # リストを詰めて表示
 setopt list_types               # 補完一覧ファイル種別表示
 
 
