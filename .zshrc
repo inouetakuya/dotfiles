@@ -1,4 +1,8 @@
 # Created by newuser for 4.3.12
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+export ALTERNATE_EDITOR=emacs
 
 
 # 漢のzsh (1) 最強のシェル、それは「zsh」 | エンタープライズ | マイナビニュース
@@ -101,3 +105,5 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include # 設定ファイルの include
 
 zstyle ':completion:*:default' menu select=1 # ファイル名の候補を C-f / C-b などでカーソル選択できる
+
+

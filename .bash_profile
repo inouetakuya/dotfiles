@@ -4,7 +4,7 @@ export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export ALTERNATE_EDITOR=emacs
 
 # use zsh
-if [ -f /bin/zsh ]; then
-    exec /bin/zsh
-fi
+# if [ -f /bin/zsh ]; then
+#     exec /bin/zsh
+# fi
 
