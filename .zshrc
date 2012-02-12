@@ -1,8 +1,17 @@
 # Created by newuser for 4.3.12
+
+
+# PATH
 export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export ALTERNATE_EDITOR=emacs
+
+# GEM EXECUTABLE DIRECTORY
+case ${HOST} in
+ANGELINA.local)
+    export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH
+esac
 
 
 # 漢のzsh (1) 最強のシェル、それは「zsh」 | エンタープライズ | マイナビニュース
