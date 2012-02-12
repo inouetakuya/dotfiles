@@ -10,7 +10,9 @@ export ALTERNATE_EDITOR=emacs
 # GEM EXECUTABLE DIRECTORY
 case ${HOST} in
 ANGELINA.local)
-    export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH
+    export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH ;;
+MATHILDA.local)
+    export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH ;;
 esac
 
 
