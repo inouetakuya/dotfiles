@@ -7,12 +7,14 @@ export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export ALTERNATE_EDITOR=emacs
 
-# GEM EXECUTABLE DIRECTORY
+# GEM EXECUTABLE DIRECTORY and RUBYLIB
 case ${HOST} in
 ANGELINA.local)
     export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH ;;
+    export RUBYLIB=$HOME/Dropbox/Projects/twenty-eight/h300:$RUBYLIB
 MATHILDA.local)
     export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH ;;
+    export RUBYLIB=$HOME/Dropbox/Projects/twenty-eight/h300:$RUBYLIB
 esac
 
 
