@@ -21,6 +21,11 @@ MATHILDA.local)
     ;;
 esac
 
+case ${HOSTNAME} in
+rad-xen-vweb4)
+    export RUBYLIB=/home/sites/h300:$RUBYLIB
+esac
+
 
 # 漢のzsh (1) 最強のシェル、それは「zsh」 | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/001/index.html
