@@ -163,6 +163,10 @@ local["^http://b.hatena.ne.jp/"] = [
 // };
 
 plugins.options["hatebnail.list_bookmarks_limit"] = 9999;
+
+plugins.options["ldrnail.include_urls"] = [
+    "^https?://www\\.google\\.co\\.jp/search.*",
+];
 //}}%PRESERVE%
 // ========================================================================= //
 
@@ -453,8 +457,8 @@ key.setViewKey(['C-x', 'h'], function (ev) {
 }, 'すべて選択', true);
 
 key.setViewKey('C-l', function (ev, arg) {
-    ext.exec("prefer-ldrize-toggle-status", arg, ev);
-}, 'LDRize 優先状態の切り替え', true);
+    ext.exec('ldrnail-toggle-status', arg, ev);
+}, 'LDRnail 優先状態の切り替え', true);
 
 key.setViewKey('f', function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
