@@ -121,6 +121,7 @@ setopt EXTENDED_HISTORY         # zsh の開始終了を記録
 
 # alias
 alias ls="ls -G"
+alias be="bundle exec"
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 
