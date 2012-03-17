@@ -7,3 +7,5 @@
 	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient  --alternate-editor emacs
 	excludesfile = /Users/inouetakuya/.gitignore
 
+[alias]
+	co = checkout
