@@ -56,15 +56,17 @@ export EDITOR=emacs             # エディタは emacs
 # 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/002/index.html
 case ${UID} in
-0)
-    PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
+0)  # root のとき
+    # PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
+    PROMPT="%B%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
     PROMPT2="%B%{[31m%}%_#%{[m%}%b " # for や while 複数行入力時に表示されるプロンプト
     SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b " # 入力ミスを確認する場合に表示されるプロンプト
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
-*)
-    PROMPT="%{[31m%}%/%%%{[m%} "
+*)  # root 以外のとき
+    # PROMPT="%{[31m%}%/%%%{[m%} "
+    PROMPT="%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
     PROMPT2="%{[31m%}%_%%%{[m%} "
     SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
@@ -80,9 +82,6 @@ kterm*|xterm*)
     }
     ;;
 esac
-
-# PROMPT
-PS1="[@${HOST%%.*} %1~]%(!.#.$) " # この辺は好み
 
 
 #=======================================
