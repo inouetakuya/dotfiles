@@ -46,14 +46,15 @@ esac
 autoload -U compinit            # 補完機能
 compinit
 
+export LANG=ja_JP.UTF-8         # 日本語環境
 export EDITOR=emacs             # エディタは emacs
+
 
 #=======================================
 # プロンプト
 #=======================================
 # 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/002/index.html
-export LANG=ja_JP.UTF-8         # 日本語環境
 case ${UID} in
 0)
     PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
