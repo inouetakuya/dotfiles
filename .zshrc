@@ -95,13 +95,13 @@ if is-at-least 4.3.10; then
 
     # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
     setopt prompt_subst
-    RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[green]}%}][%~]%{${reset_color}%}'
+    RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[green]}%}][%n]%{${reset_color}%}'
 
 else
-    RPROMPT="%{${fg[green]}%}[%~]%{${reset_color}%}"
+    RPROMPT="%{${fg[green]}%}][%n]%{${reset_color}%}"
 fi
 
-PROMPT="[%n%{${fg[green]}%}@%m%{${reset_color}%}]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
+PROMPT="[%{${fg[green]}%}@%m%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
 PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 
