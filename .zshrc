@@ -95,13 +95,33 @@ if is-at-least 4.3.10; then
 
     # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
     setopt prompt_subst
-    RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[green]}%}][%n]%{${reset_color}%}'
-
+    case ${UID} in
+    0)  # root のとき
+        RPROMPT='%{${reset_color}%}[`rprompt-git-current-branch`%{${reset_color}%}][%{${fg[red]}%}%n%{${reset_color}%}]'
+        ;;
+    *)  # root 以外のとき
+        RPROMPT='%{${reset_color}%}[`rprompt-git-current-branch`%{${reset_color}%}][%{${fg[green]}%}%n%{${reset_color}%}]'
+        ;;
+    esac
 else
-    RPROMPT="%{${fg[green]}%}][%n]%{${reset_color}%}"
+    case ${UID} in
+    0)  # root のとき
+        RPROMPT="[%{${fg[red]}%}%n%{${reset_color}%}]"
+        ;;
+    *)  # root 以外のとき
+        RPROMPT="[%{${fg[green]}%}%n%{${reset_color}%}]"
+        ;;
+    esac
 fi
 
-PROMPT="[%{${fg[green]}%}@%m%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
+case ${UID} in
+0)  # root のとき
+    PROMPT="[%{${fg[red]}%}@%m%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
+    ;;
+*)  # root 以外のとき
+    PROMPT="[%{${fg[green]}%}@%m%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
+    ;;
+esac
 PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 
