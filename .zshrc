@@ -23,10 +23,16 @@ MATHILDA.local)
 esac
 
 case ${HOSTNAME} in
+rad-xen-vweb1)
+    export RUBYLIB=/home/sites/h300:$RUBYLIB
+    ;;
 rad-xen-vweb2)
     export RUBYLIB=/home/sites/h300:$RUBYLIB
     ;;
 rad-xen-vweb4)
+    export RUBYLIB=/home/sites/h300:$RUBYLIB
+    ;;
+rad-xen-vweb6)
     export RUBYLIB=/home/sites/h300:$RUBYLIB
     ;;
 esac
