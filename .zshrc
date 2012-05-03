@@ -53,26 +53,78 @@ export EDITOR=emacs             # エディタは emacs
 #=======================================
 # プロンプト
 #=======================================
-# 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
-# http://news.mynavi.jp/column/zsh/002/index.html
-case ${UID} in
-0)  # root のとき
-    # PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
-    PROMPT="%B%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-    PROMPT2="%B%{[31m%}%_#%{[m%}%b " # for や while 複数行入力時に表示されるプロンプト
-    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b " # 入力ミスを確認する場合に表示されるプロンプト
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-*)  # root 以外のとき
-    # PROMPT="%{[31m%}%/%%%{[m%} "
-    PROMPT="%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-    PROMPT2="%{[31m%}%_%%%{[m%} "
-    SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-esac 
+# dotfiles/.zshrc at master · glidenote/dotfiles · GitHub
+# https://github.com/glidenote/dotfiles/blob/master/.zshrc
+autoload colors
+colors
+
+
+autoload -Uz is-at-least
+
+# Git のカレントブランチ、状態を表示させる
+if is-at-least 4.3.10; then
+    # http://d.hatena.ne.jp/uasi/20091025/1256458798
+    autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+
+    function rprompt-git-current-branch {
+    local name st color gitdir action
+    if [[ "$PWD" == '/\.git(/.*)?$' ]]; then
+        return
+    fi
+    name=`git branch 2> /dev/null | grep '^\*' | cut -b 3-`
+    if [[ -z $name ]]; then
+        return
+    fi
+
+    gitdir=`git rev-parse --git-dir 2> /dev/null`
+    action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+
+    st=`git status 2> /dev/null`
+    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+        color=%F{green}
+    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+        color=%F{yellow}
+    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+        color=%B%F{red}
+    else
+        color=%F{red}
+    fi
+
+    echo "$color$name$action%f%b"
+    }
+
+    # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+    setopt prompt_subst
+    RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[cyan]}%}][%~]%{${reset_color}%}'
+
+else
+    RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+fi
+
+PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"}%(!.#.$) %{${reset_color}%}"
+PROMPT2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
+SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+
+# # 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
+# # http://news.mynavi.jp/column/zsh/002/index.html
+# case ${UID} in
+# 0)  # root のとき
+#     # PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
+#     PROMPT="%B%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
+#     PROMPT2="%B%{[31m%}%_#%{[m%}%b " # for や while 複数行入力時に表示されるプロンプト
+#     SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b " # 入力ミスを確認する場合に表示されるプロンプト
+#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#     ;;
+# *)  # root 以外のとき
+#     # PROMPT="%{[31m%}%/%%%{[m%} "
+#     PROMPT="%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
+#     PROMPT2="%{[31m%}%_%%%{[m%} "
+#     SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
+#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#     ;;
+# esac 
 
 # ターミナルのタイトル
 case "${TERM}" in
