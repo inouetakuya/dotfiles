@@ -8,4 +8,5 @@ my dotfiles
     cd ~
     git clone https://inouetakuya@github.com/inouetakuya/dotfiles.git
     ln -s dotfiles/.zshrc .zshrc
+    ln -s ...
 
