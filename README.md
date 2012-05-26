@@ -6,7 +6,7 @@ my dotfiles
 
 
 ## インストール
-> cd ~
-> git clone https://inouetakuya@github.com/inouetakuya/dotfiles.git
-> ln -s dotfiles/.zshrc .zshrc
+   cd ~
+   git clone https://inouetakuya@github.com/inouetakuya/dotfiles.git
+   ln -s dotfiles/.zshrc .zshrc
 
