@@ -216,10 +216,22 @@ zstyle ':completion:*:default' menu select=1 # ファイル名の候補を C-f /
 # http://news.mynavi.jp/column/zsh/024/index.html
 alias la="ls -a"
 alias ll="ls -l"
-
 alias ls="ls -G"
 alias be="bundle exec"
-alias av="git commit -av"
+
+# git
+alias gco="git checkout"
+alias gst="git status"
+alias gai="git add -i"
+alias gci="git commit -v"
+alias gav="git commit -av"
+alias gca="git commit --amend"
+alias gdi="git diff"
+alias gbr="git branch"
+
+# git-flow
+alias ffs="git flow feature start"
+alias fff="git flow feature finish"
 
 
 #=======================================
