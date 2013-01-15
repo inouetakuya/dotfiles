@@ -5,9 +5,10 @@
 #=======================================
 case ${HOST} in
 ANGELINA.local)
+    eval "$(rbenv init -)"
     export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-    export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
-    export RUBYLIB=$HOME/Dropbox/Projects/h300/src:$RUBYLIB
+    export PATH="/Users/inouetakuya/.rbenv/shims:$PATH"
+    export PATH="/Users/inouetakuya/.rbenv/bin:$PATH"
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
