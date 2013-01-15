@@ -1,0 +1,7 @@
+# Ignore tempfiles for Emacs
+*~
+
+# Others
+Icon?
+.DS_Store
+
