@@ -1,5 +1,6 @@
 # Ignore tempfiles for Emacs
 *~
+\#*
 
 # Others
 Icon?
