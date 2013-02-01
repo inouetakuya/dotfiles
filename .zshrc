@@ -238,6 +238,6 @@ alias fff="git flow feature finish"
 #=======================================
 # その他
 #=======================================
-[ -f ~/.zshrc.include ] && source ~/.zshrc.include # 設定ファイルの include
-
+[ -f ~/.zshrc.include ] && source ~/.zshrc.include  # 設定ファイルの include
+[ -f ~/.git-flow-completion ] && source ~/.git-flow-completion  # git-flow コマンドの補完
 
