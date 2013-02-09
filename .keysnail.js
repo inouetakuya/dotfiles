@@ -377,6 +377,14 @@ key.setViewKey('C-M-b', function (ev, arg) {
     CLIPBOARD.copyString(txt);
 }, 'URL とタイトルをコピー');
 
+key.setViewKey('C-M-l', function (ev, arg) {
+    var w = window._content;
+    var d = w.document;
+    var txt = "[" + d.location.href + ":title=" + d.title + ":bookmark]";
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    CLIPBOARD.copyString(txt);
+}, 'リンクをはてな記法でコピー');
+
 key.setViewKey([['e'], ['SPC']], function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hit a Hint を開始', true);
