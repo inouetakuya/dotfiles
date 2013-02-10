@@ -4,9 +4,8 @@
 [color]
 	ui = auto
 [core]
-	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient  --alternate-editor emacs
-	excludesfile = /Users/inouetakuya/.gitignore
-
+	editor = emacs
+	excludesfile = ~/.gitignore
 [alias]
 	co = checkout
 	ci = commit -v
