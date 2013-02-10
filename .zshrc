@@ -131,10 +131,10 @@ fi
 
 case ${UID} in
 0)  # root のとき
-    PROMPT="[%{${fg[red]}%}@%m%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
+    PROMPT="[%{${fg[red]}%}@%M%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
     ;;
 *)  # root 以外のとき
-    PROMPT="[%{${fg[green]}%}@%m%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
+    PROMPT="[%{${fg[green]}%}@%M%{${reset_color}%} %1~]${WINDOW:+"[$WINDOW]"}%(!.#.$) "
     ;;
 esac
 PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
