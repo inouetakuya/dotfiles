@@ -31,16 +31,6 @@ PMAC037J.local)
     ;;
 esac
 
-case ${HOSTNAME} in
-h.300x.info)
-    export RUBYLIB=/home/sites/h300/current:$RUBYLIB
-    ;;
-*.h.300x.info)
-    export RUBYLIB=/home/sites/h300/current:$RUBYLIB
-    ;;
-esac
-
-
 #=======================================
 # 基本設定
 #=======================================
