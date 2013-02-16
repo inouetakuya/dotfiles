@@ -377,6 +377,14 @@ key.setViewKey('C-M-b', function (ev, arg) {
     CLIPBOARD.copyString(txt);
 }, 'URL とタイトルをコピー');
 
+key.setViewKey('C-M-m', function (ev, arg) {
+    var w = window._content;
+    var d = w.document;
+    var txt = "* [" + d.title + "](" + d.location.href + ")";
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    CLIPBOARD.copyString(txt);
+}, 'リンクを Markdown 形式でコピー');
+
 key.setViewKey('C-M-l', function (ev, arg) {
     var w = window._content;
     var d = w.document;
