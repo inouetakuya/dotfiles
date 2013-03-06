@@ -6,7 +6,8 @@
 [core]
         editor = emacs
 	excludesfile = /Users/inouetakuya/.gitignore
-
+[push]
+        default = matching
 [alias]
 	co = checkout
 	ci = commit -v
