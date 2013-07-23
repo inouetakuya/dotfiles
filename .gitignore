@@ -5,4 +5,5 @@
 # Others
 Icon?
 .DS_Store
-
+.project/
+.idea/
