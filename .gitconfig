@@ -17,6 +17,7 @@
 	ca = commit --amend
 	ai = add -i
 	av = commit -av
+	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
