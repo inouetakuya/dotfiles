@@ -183,7 +183,7 @@ zstyle ':completion:*:default' menu select=1 # ファイル名の候補を C-f /
 #=======================================
 # 漢のzsh (24) グッバイ野郎ども! コピペではじめるzshファイナル | エンタープライズ | マイナビニュース
 # http://news.mynavi.jp/column/zsh/024/index.html
-alias la="ls -a"
+alias la="ls -al"
 alias ll="ls -l"
 alias ls="ls -G"
 alias be="bundle exec"
