@@ -46,33 +46,10 @@ export EDITOR=emacs             # エディタは emacs
 #=======================================
 # プロンプト
 #=======================================
-# # 漢のzsh (2) 取りあえず、プロンプトを整えておく。カッコつけたいからね | エンタープライズ | マイナビニュース
-# # http://news.mynavi.jp/column/zsh/002/index.html
-# case ${UID} in
-# 0)  # root のとき
-#     # PROMPT="%B%{[31m%}%/#%{[m%}%b " # 通常のプロンプト
-#     PROMPT="%B%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-#     PROMPT2="%B%{[31m%}%_#%{[m%}%b " # for や while 複数行入力時に表示されるプロンプト
-#     SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b " # 入力ミスを確認する場合に表示されるプロンプト
-#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-#     ;;
-# *)  # root 以外のとき
-#     # PROMPT="%{[31m%}%/%%%{[m%} "
-#     PROMPT="%{[31m%}[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-#     PROMPT2="%{[31m%}%_%%%{[m%} "
-#     SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-#     ;;
-# esac 
-
-
 # dotfiles/.zshrc at master · glidenote/dotfiles · GitHub
 # https://github.com/glidenote/dotfiles/blob/master/.zshrc
 autoload colors
 colors
-
 
 autoload -Uz is-at-least
 
@@ -119,6 +96,7 @@ if is-at-least 4.3.10; then
         ;;
     esac
 else
+# バージョンが 4.3.10 未満のとき
     case ${UID} in
     0)  # root のとき
         RPROMPT="[%{${fg[red]}%}%n%{${reset_color}%}]"
@@ -210,24 +188,9 @@ alias ll="ls -l"
 alias ls="ls -G"
 alias be="bundle exec"
 
-# git
-alias gco="git checkout"
-alias gst="git status"
-alias gai="git add -i"
-alias gci="git commit -v"
-alias gav="git commit -av"
-alias gca="git commit --amend"
-alias gdi="git diff"
-alias gbr="git branch"
-
-# git-flow
-alias ffs="git flow feature start"
-alias fff="git flow feature finish"
-
 
 #=======================================
 # その他
 #=======================================
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include  # 設定ファイルの include
-[ -f ~/.git-flow-completion ] && source ~/.git-flow-completion  # git-flow コマンドの補完
 
