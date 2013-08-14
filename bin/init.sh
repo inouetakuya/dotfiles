@@ -7,7 +7,6 @@
 FILES="
 .bash_profile
 .zshrc
-.zshenv
 .tmux.conf
 "
 
@@ -17,11 +16,12 @@ fi
 
 for FILE in ${FILES}
 do
-  # アーカイブする
-  if [ ! -e ~/archive/${FILE} ]; then
+  # 通常のファイルのみアーカイブする
+  if [[ -f ~/${FILE} && ! -h ~/${FILE} && ! -f ~/archive/${FILE} ]]; then
+    echo ${FILE}
     cp ~/${FILE} ~/archive/${FILE}
   fi
 
-  # TODO: シンボリックを作成する
+  # TODO: シンボリックリンクを作成する
 done
 
