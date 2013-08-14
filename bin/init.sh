@@ -22,6 +22,8 @@ do
     cp -ap ~/${FILE} ~/archive/${FILE}
   fi
 
-  # TODO: シンボリックリンクを作成する
+  # シンボリックリンクを作成する
+  rm -f ~/${FILE}
+  ln -sf ~/dotfiles/${FILE} ~/${FILE}
 done
 
