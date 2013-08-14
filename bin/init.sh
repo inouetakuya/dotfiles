@@ -18,8 +18,8 @@ for FILE in ${FILES}
 do
   # 通常のファイルのみアーカイブする
   if [[ -f ~/${FILE} && ! -h ~/${FILE} && ! -f ~/archive/${FILE} ]]; then
-    echo ${FILE}
-    cp ~/${FILE} ~/archive/${FILE}
+    echo "cp -ap ~/${FILE} ~/archive/${FILE}"
+    cp -ap ~/${FILE} ~/archive/${FILE}
   fi
 
   # TODO: シンボリックリンクを作成する
