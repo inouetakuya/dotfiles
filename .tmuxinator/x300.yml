@@ -1,7 +1,7 @@
 # ~/.tmuxinator/x300.yml
 
 name: x300
-root: ~/
+root: ~/Projects/x300
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,7 +19,7 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - vim
-        - guard
+        - emacs
+        - bundle exec guard
   - server: bundle exec rails s
   - logs: tail -f logs/development.log
