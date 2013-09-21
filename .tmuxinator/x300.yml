@@ -16,10 +16,6 @@ root: ~/Projects/x300
 # tmux_options: -f ~/.tmux.mac.conf
 
 windows:
-  - editor:
-      layout: main-vertical
-      panes:
-        - emacs
-        - bundle exec guard
-  - server: bundle exec rails s
-  - logs: tail -f logs/development.log
+  - x300:
+  - webrick: bundle exec rails s
+
