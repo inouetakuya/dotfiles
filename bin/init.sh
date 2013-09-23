@@ -6,6 +6,7 @@ FILES="
 .bash_profile
 .zshrc
 .tmux.conf
+.tmuxinator
 .gitconfig
 .gitignore
 .git-flow-completion.zsh
