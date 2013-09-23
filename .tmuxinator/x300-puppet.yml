@@ -1,0 +1,25 @@
+# ~/.tmuxinator/x300-puppet.yml
+
+name: x300-puppet
+root: ~/Projects/x300-puppet
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+pre: vagrant up
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+windows:
+  - x300-puppet:
+  - app001.local: vagrant ssh app001
+  - manage001.local: vagrant ssh manage001
+  - h300001.local: vagrant ssh h300001
+  - desktop001.local: vagrant ssh desktop001
+
