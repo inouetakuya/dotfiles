@@ -17,8 +17,9 @@ pre: vagrant up
 # tmux_options: -f ~/.tmux.mac.conf
 
 windows:
+  - x300-puppet:
   - app001.local: vagrant ssh app001
   - manage001.local: vagrant ssh manage001
   - h300001.local: vagrant ssh h300001
-  - x300-puppet:
+  - desktop001.local: vagrant ssh desktop001
 
