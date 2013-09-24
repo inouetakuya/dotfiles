@@ -19,3 +19,5 @@ pre: sshfs inouetakuya@inouetakuya.shop-pro.pb:/home/inouetakuya/dev/cmsp ~/mnt/
 
 windows:
   - calamel.jp: cd calamel.jp
+  - i-web: ssh inouetakuya@inouetakuya.web001.calamel.pb
+
