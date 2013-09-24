@@ -21,6 +21,7 @@ pre: mount -t nfs 192.168.25.21:/home/sites/shop-pro.jp ~/mnt/cmsp
 windows:
   - calamel.jp: cd calamel.jp
   - i-web: ssh inouetakuya@inouetakuya.web001.calamel.pb
+  - i-shop: ssh inouetakuya@inouetakuya.shop-pro.pb
   - dev-calamel-db: mysql -h m-db001.calamel.pb -ucalameluser calamel 
   - dev-shoppro-db: mysql -h 192.168.39.91 -u procart -p procart
 
