@@ -1,0 +1,25 @@
+# ~/.tmuxinator/calamel.yml
+
+name: calamel
+root: ~/mnt/inouetakuya.web001.calamel.pb
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+pre: sshfs inouetakuya@inouetakuya.web001.calamel.pb:/home/inouetakuya/dev/calamel ~/mnt/inouetakuya.web001.calamel.pb & sshfs inouetakuya@inouetakuya.shop-pro.pb:/home/inouetakuya/dev/cmsp ~/mnt/inouetakuya.shop-pro.pb & mount -t nfs 192.168.25.21:/home/sites/shop-pro.jp ~/mnt/cmsp
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+windows:
+  - calamel.jp: cd calamel.jp
+  - i-web: ssh inouetakuya@inouetakuya.web001.calamel.pb
+  - i-shop: ssh inouetakuya@inouetakuya.shop-pro.pb
+  - dev-calamel-db: mysql -h m-db001.calamel.pb -ucalameluser calamel 
+  - dev-shoppro-db: mysql -h 192.168.39.91 -u procart -p procart
+
