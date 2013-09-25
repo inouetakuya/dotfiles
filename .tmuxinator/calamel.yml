@@ -8,9 +8,7 @@ root: ~/mnt/inouetakuya.web001.calamel.pb
 
 # Runs before everything. Use it to start daemons etc.
 # pre: sudo /etc/rc.d/mysqld start
-pre: sshfs inouetakuya@inouetakuya.web001.calamel.pb:/home/inouetakuya/dev/calamel ~/mnt/inouetakuya.web001.calamel.pb
-pre: sshfs inouetakuya@inouetakuya.shop-pro.pb:/home/inouetakuya/dev/cmsp ~/mnt/inouetakuya.shop-pro.pb
-pre: mount -t nfs 192.168.25.21:/home/sites/shop-pro.jp ~/mnt/cmsp
+pre: sshfs inouetakuya@inouetakuya.web001.calamel.pb:/home/inouetakuya/dev/calamel ~/mnt/inouetakuya.web001.calamel.pb & sshfs inouetakuya@inouetakuya.shop-pro.pb:/home/inouetakuya/dev/cmsp ~/mnt/inouetakuya.shop-pro.pb & mount -t nfs 192.168.25.21:/home/sites/shop-pro.jp ~/mnt/cmsp
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
