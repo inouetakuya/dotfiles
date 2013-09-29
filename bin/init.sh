@@ -13,6 +13,7 @@ FILES="
 .powconfig
 .keysnail.js
 Gemfile
+Gemfile.lock
 "
 
 if [ ! -e ~/archive ]; then
