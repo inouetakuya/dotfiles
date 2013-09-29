@@ -12,6 +12,8 @@ FILES="
 .git-flow-completion.zsh
 .powconfig
 .keysnail.js
+Gemfile
+Gemfile.lock
 "
 
 if [ ! -e ~/archive ]; then
