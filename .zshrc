@@ -20,7 +20,7 @@ MATHILDA.local)
     export ALTERNATE_EDITOR=emacs
     ;;
 PMAC037J.local)
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - zsh)"
     export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
     export PATH="/Users/inouetakuya/.rbenv/shims:$PATH"
     export PATH="/Users/inouetakuya/.rbenv/bin:$PATH"
