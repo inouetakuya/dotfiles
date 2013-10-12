@@ -17,10 +17,6 @@ root: ~/Projects/c2c
 
 windows:
   - c2c:
-      layout: main-vertical
-      panes:
-        -
-        - bundle exec guard 
   - webrick: bundle exec rails s
   - pry: bundle exec rails c
 
