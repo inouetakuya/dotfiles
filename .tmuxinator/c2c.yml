@@ -19,4 +19,5 @@ windows:
   - c2c:
   - webrick: bundle exec rails s
   - pry: bundle exec rails c
+  - sqale: ssh -p 2222 sqale@gateway.sqale.jp 
 
