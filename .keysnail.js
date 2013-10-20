@@ -377,7 +377,7 @@ key.setViewKey('C-M-b', function (ev, arg) {
     CLIPBOARD.copyString(txt);
 }, 'URL とタイトルをコピー');
 
-key.setViewKey('C-M-m', function (ev, arg) {
+key.setViewKey('C-M-l', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = "* [" + d.title + "](" + d.location.href + ")";
@@ -385,7 +385,7 @@ key.setViewKey('C-M-m', function (ev, arg) {
     CLIPBOARD.copyString(txt);
 }, 'リンクを Markdown 形式でコピー');
 
-key.setViewKey('C-M-l', function (ev, arg) {
+key.setViewKey('C-M-h', function (ev, arg) {
     var w = window._content;
     var d = w.document;
     var txt = "[" + d.location.href + ":title=" + d.title + ":bookmark]";
