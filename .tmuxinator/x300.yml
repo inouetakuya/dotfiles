@@ -17,8 +17,6 @@ root: ~/Projects/x300
 
 windows:
   - x300:
-      layout: main-vertical
-      panes:
-        -
-        - bundle exec guard 
   - webrick: bundle exec rails s
+  - spork: bundle exec spork
+
