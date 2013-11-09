@@ -388,7 +388,8 @@ key.setViewKey('C-M-l', function (ev, arg) {
 key.setViewKey('C-M-h', function (ev, arg) {
     var w = window._content;
     var d = w.document;
-    var txt = "[" + d.location.href + ":title=" + d.title + ":bookmark]";
+    var title = d.title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
+    var txt = "[" + d.location.href + ":title=" + title + ":bookmark]";
     const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'リンクをはてな記法でコピー');
