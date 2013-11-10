@@ -209,9 +209,9 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
 
 // ============================= Key bindings ============================== //
 
-key.setGlobalKey('C-M-r', function (ev) {
-    userscript.reload();
-}, '設定ファイルを再読み込み', true);
+// key.setGlobalKey('C-M-r', function (ev) {
+//     userscript.reload();
+// }, '設定ファイルを再読み込み', true);
 
 key.setGlobalKey('M-x', function (ev, arg) {
     ext.select(arg, ev);
@@ -388,7 +388,8 @@ key.setViewKey('C-M-l', function (ev, arg) {
 key.setViewKey('C-M-h', function (ev, arg) {
     var w = window._content;
     var d = w.document;
-    var txt = "[" + d.location.href + ":title=" + d.title + ":bookmark]";
+    var title = d.title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
+    var txt = "[" + d.location.href + ":title=" + title + ":bookmark]";
     const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
     CLIPBOARD.copyString(txt);
 }, 'リンクをはてな記法でコピー');
@@ -593,6 +594,25 @@ key.setEditKey('C-w', function (ev) {
 key.setEditKey('M-w', function (ev) {
     command.copyRegion(ev);
 }, '選択中のテキストをコピー');
+
+key.setEditKey('C-M-r', function (ev) {
+    var clipboardText = command.getClipboardText();
+    var reg = new RegExp(/<span\sclass="hatena-bookmark-title"><a\shref="([^"]+)">(.+)<\/a><\/span>\s<span\sclass="hatena-bookmark-users">/);
+    var result = reg.exec(clipboardText);
+
+    if (!result) {
+      return;
+    }
+
+    var url = result[1];
+    var url = url.replace('http://d.hatena.ne.jp/inouetakuya/', 'http://blog.inouetakuya.info/entry/');
+    var title = result[2];
+    var title = title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
+    var link = "[" + url + ":title=" + title + ":bookmark]";
+
+    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+    CLIPBOARD.copyString(link);
+}, 'クリップボードの内容をはてな記法リンクに変換する');
 
 key.setCaretKey([['C-a'], ['^']], function (ev) {
     ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
