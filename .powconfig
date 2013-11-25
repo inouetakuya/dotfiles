@@ -1,3 +1,4 @@
 export PATH="/Users/inouetakuya/.rbenv/shims:/Users/inouetakuya/.rbenv/bin:$PATH"
 export POW_TIMEOUT=3600
 export POW_WORKER=1
+export POW_EXT_DOMAINS=info
