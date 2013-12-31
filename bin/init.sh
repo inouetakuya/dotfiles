@@ -9,7 +9,6 @@ FILES="
 .tmuxinator
 .gitconfig
 .gitignore
-.git-flow-completion.zsh
 .powconfig
 .keysnail.js
 Gemfile
@@ -29,7 +28,7 @@ do
   fi
 
   # シンボリックリンクを作成する
-  rm -f ~/${FILE}
-  ln -sf ~/dotfiles/${FILE} ~/${FILE}
+  rm ~/${FILE}
+  ln -s ~/dotfiles/${FILE} ~/${FILE}
 done
 
