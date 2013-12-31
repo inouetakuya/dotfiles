@@ -3,18 +3,15 @@
 #=======================================
 case ${HOST} in
 ANGELINA.local)
+    [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
     eval "$(rbenv init -)"
-    export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-    export PATH="/Users/inouetakuya/.rbenv/shims:$PATH"
-    export PATH="/Users/inouetakuya/.rbenv/bin:$PATH"
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
     ;;
 MATHILDA.local)
-    export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-    export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
-    export RUBYLIB=$HOME/Dropbox/Projects/h300/src:$RUBYLIB
+    [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+    eval "$(rbenv init -)"
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs

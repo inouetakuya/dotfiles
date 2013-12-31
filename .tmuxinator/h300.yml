@@ -18,4 +18,4 @@ root: ~/Projects/h300
 windows:
   - h300:
   - webrick: bundle exec rails s
-  - spork: bundle exec spork
+
