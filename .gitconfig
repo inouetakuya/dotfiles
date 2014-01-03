@@ -5,7 +5,7 @@
 	ui = auto
 [core]
         editor = emacs
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = /Users/inouetakuya/.gitignore
 [push]
         default = matching
 [alias]
