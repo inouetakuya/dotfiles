@@ -16,7 +16,7 @@ export EDITOR=emacs             # エディタは emacs
 case ${HOST} in
 ANGELINA.local)
     [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - zsh)"
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
@@ -25,7 +25,7 @@ ANGELINA.local)
     ;;
 MATHILDA.local)
     [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - zsh)"
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
