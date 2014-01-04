@@ -1,4 +1,16 @@
 #=======================================
+# 基本設定
+#=======================================
+# 漢のzsh (1) 最強のシェル、それは「zsh」 | エンタープライズ | マイナビニュース
+# http://news.mynavi.jp/column/zsh/001/index.html
+autoload -U compinit            # 補完機能
+compinit
+
+export LANG=ja_JP.UTF-8         # 日本語環境
+export EDITOR=emacs             # エディタは emacs
+
+
+#=======================================
 # ホストごとの設定
 #=======================================
 case ${HOST} in
@@ -8,6 +20,8 @@ ANGELINA.local)
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
+    source /opt/boxen/homebrew/etc/bash_completion.d/git-completion.bash
+    compdef hub=git
     ;;
 MATHILDA.local)
     [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
@@ -15,6 +29,8 @@ MATHILDA.local)
     export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
+    source /opt/boxen/homebrew/etc/bash_completion.d/git-completion.bash
+    compdef hub=git
     ;;
 PMAC037J.local)
     eval "$(rbenv init - zsh)"
@@ -26,18 +42,6 @@ PMAC037J.local)
     export ALTERNATE_EDITOR=emacs
     ;;
 esac
-
-#=======================================
-# 基本設定
-#=======================================
-# 漢のzsh (1) 最強のシェル、それは「zsh」 | エンタープライズ | マイナビニュース
-# http://news.mynavi.jp/column/zsh/001/index.html
-autoload -U compinit            # 補完機能
-compinit
-
-export LANG=ja_JP.UTF-8         # 日本語環境
-export EDITOR=emacs             # エディタは emacs
-
 
 #=======================================
 # プロンプト
