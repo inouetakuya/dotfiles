@@ -41,6 +41,15 @@ PMAC037J.local)
     export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
     export ALTERNATE_EDITOR=emacs
     ;;
+PMAC130S.local)
+    [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+    eval "$(rbenv init - zsh)"
+    export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+    export VISUAL=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+    export ALTERNATE_EDITOR=emacs
+    source /opt/boxen/homebrew/etc/bash_completion.d/git-completion.bash
+    compdef hub=git
+    ;;
 esac
 
 #=======================================
