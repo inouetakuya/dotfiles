@@ -1,5 +1,0 @@
-export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/inouetakuya/.rbenv/bin:/Users/inouetakuya/.rbenv/shims:/Users/inouetakuya/bin:/usr/X11/bin"
-export POW_TIMEOUT=3600
-export POW_WORKER=1
-export POW_EXT_DOMAINS=info
-

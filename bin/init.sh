@@ -3,13 +3,6 @@
 # git clone git://github.com/inouetakuya/dotfiles.git の後に実行し、
 #   ホームディレクトリを dotfiles リポジトリの内容に置き換える
 FILES="
-.bash_profile
-.zshrc
-.tmux.conf
-.tmuxinator
-.gitconfig
-.gitignore
-.powconfig
 .keysnail.js
 Gemfile
 Gemfile.lock
@@ -31,4 +24,3 @@ do
   rm ~/${FILE}
   ln -s ~/dotfiles/${FILE} ~/${FILE}
 done
-
