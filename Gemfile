@@ -4,4 +4,5 @@ gem 'rails'
 gem 'tmuxinator'
 gem 'spree'
 gem 'powder'
+gem 'octokit'
 
