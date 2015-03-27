@@ -5,4 +5,4 @@ gem 'tmuxinator'
 gem 'spree'
 gem 'powder'
 gem 'octokit'
-
+gem 'middleman'
