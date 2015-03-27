@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 
-gem 'rails'
-gem 'tmuxinator'
-gem 'spree'
-gem 'powder'
-gem 'octokit'
 gem 'middleman'
 gem 'middleman-blog'
+gem 'octokit'
+gem 'powder'
+gem 'rails'
+gem 'spree'
+gem 'tmuxinator'
