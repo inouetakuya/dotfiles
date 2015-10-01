@@ -302,14 +302,6 @@ key.setGlobalKey(['C-c', 'C-c', 'C-c'], function (ev) {
   command.clearConsole();
 }, 'Javascript コンソールの表示をクリア', true);
 
-key.setGlobalKey('C-M-l', function (ev) {
-  getBrowser().mTabContainer.advanceSelectedTab(1, true);
-}, 'ひとつ右のタブへ');
-
-key.setGlobalKey('C-M-h', function (ev) {
-  getBrowser().mTabContainer.advanceSelectedTab(-1, true);
-}, 'ひとつ左のタブへ');
-
 key.setGlobalKey('C-O', function (ev, arg) {
   var toolbox = document.getElementById("navigator-toolbox");
   toolbox.hidden = !toolbox.hidden;
@@ -428,11 +420,11 @@ key.setViewKey([['>'], ['G']], function (ev) {
   goDoCommand("cmd_scrollBottom");
 }, 'ページ末尾へ移動', true);
 
-key.setViewKey([['C-f'], ['l']], function (ev) {
+key.setViewKey([['<right>'], ['l']], function (ev) {
   getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
-key.setViewKey([['C-b'], ['h']], function (ev) {
+key.setViewKey([['<left>'], ['h']], function (ev) {
   getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
