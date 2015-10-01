@@ -24,7 +24,7 @@ function passThenFocus(k, i, selector, type) {
   return [k, function () {
     key.feed(k, i, type);
 
-    let elem = content.document.querySelector(selector);
+    var elem = content.document.querySelector(selector);
 
     if (elem) {
       elem.focus();
@@ -302,7 +302,7 @@ key.setGlobalKey(['C-x', 'm'], function (ev) {
 }, 'ウィンドウを最大化 / 元の大きさに戻す', true);
 
 key.setGlobalKey([['C-x', '.'], ['C-.']], function (ev, arg) {
-  let elem = document.commandDispatcher.focusedElement;
+  var elem = document.commandDispatcher.focusedElement;
   if (elem) {
     elem.blur();
   }
@@ -596,7 +596,7 @@ key.setEditKey('C-M-y', function (ev) {
     return;
   }
 
-  let ct = command.getClipboardText();
+  var ct = command.getClipboardText();
 
   if (!command.kill.ring.length || ct != command.kill.ring[0]) {
     command.pushKillRing(ct);
