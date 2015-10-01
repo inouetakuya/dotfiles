@@ -147,32 +147,6 @@ local["^http://b.hatena.ne.jp/"] = [
     ["b", null]
 ];
 
-// vi キーバインドにするメリットがなかったので、
-// デフォルトの Emacs キーバインドを使用する
-//
-// tanything のキーバインドを追加
-// plugins.options["tanything_opt.keymap"] = {
-//     "C-z"   : "prompt-toggle-edit-mode",
-//     "SPC"   : "prompt-next-page",
-//     "b"     : "prompt-previous-page",
-//     "j"     : "prompt-next-completion",
-//     "k"     : "prompt-previous-completion",
-//     "g"     : "prompt-beginning-of-candidates",
-//     "G"     : "prompt-end-of-candidates",
-//     "D"     : "prompt-cancel",
-//     // Tanything specific actions
-//     "O"     : "localOpen",
-//     "q"     : "localClose",
-//     "p"     : "localLeftclose",
-//     "n"     : "localRightclose",
-//     "a"     : "localAllclose",
-//     "d"     : "localDomainclose",
-//     "c"     : "localClipUT",
-//     "C"     : "localClipU",
-//     "e"     : "localMovetoend",
-//     "p"     : "localTogglePin"
-// };
-
 plugins.options["hatebnail.list_bookmarks_limit"] = 9999;
 
 //}}%PRESERVE%
@@ -220,10 +194,6 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
 
 // ============================= Key bindings ============================== //
 
-// key.setGlobalKey('C-M-r', function (ev) {
-//     userscript.reload();
-// }, '設定ファイルを再読み込み', true);
-
 key.setGlobalKey('M-x', function (ev, arg) {
     ext.select(arg, ev);
 }, 'エクステ一覧表示', true);
@@ -239,11 +209,6 @@ key.setGlobalKey(['<f1>', 'F'], function (ev) {
 key.setGlobalKey('C-m', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RETURN, true);
 }, 'リターンコードを生成');
-
-// "M-l" を使うのでコメントアウト
-// key.setGlobalKey(['C-x', 'l'], function (ev) {
-//     command.focusToById("urlbar");
-// }, 'ロケーションバーへフォーカス', true);
 
 key.setGlobalKey(['C-x', 'g'], function (ev) {
     command.focusToById("searchbar");
