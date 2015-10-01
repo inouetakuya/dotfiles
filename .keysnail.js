@@ -8,17 +8,26 @@
 var local = {};
 plugins.options["site_local_keymap.local_keymap"] = local;
 
-function fake(k, i) function () { key.feed(k, i); };
-function pass(k, i) [k, fake(k, i)];
-function ignore(k, i) [k, null];
+function fake(k, i) {
+  return function () { key.feed(k, i); }
+};
+
+function pass(k, i) {
+  return [k, fake(k, i)];
+}
+
+function ignore(k, i) {
+  return [k, null];
+}
 
 function passThenFocus(k, i, selector, type) {
-    return [k, function () {
-	key.feed(k, i, type);
-	let elem = content.document.querySelector(selector);
-	if (elem)
-	    elem.focus();
-    }];
+  return [k, function () {
+    key.feed(k, i, type);
+    let elem = content.document.querySelector(selector);
+    if (elem) {
+      elem.focus();
+    }
+  }];
 };
 
 local["^https?://mail.google.com/mail/"] = [
