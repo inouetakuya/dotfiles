@@ -23,7 +23,9 @@ function ignore(k, i) {
 function passThenFocus(k, i, selector, type) {
   return [k, function () {
     key.feed(k, i, type);
+
     let elem = content.document.querySelector(selector);
+
     if (elem) {
       elem.focus();
     }
@@ -300,9 +302,13 @@ key.setGlobalKey(['C-x', 'm'], function (ev) {
 }, 'ウィンドウを最大化 / 元の大きさに戻す', true);
 
 key.setGlobalKey([['C-x', '.'], ['C-.']], function (ev, arg) {
-    let (elem = document.commandDispatcher.focusedElement) elem && elem.blur();
-    gBrowser.focus();
-    content.focus();
+  let elem = document.commandDispatcher.focusedElement;
+  if (elem) {
+    elem.blur();
+  }
+
+  gBrowser.focus();
+  content.focus();
 }, 'コンテンツへフォーカス', true);
 
 key.setGlobalKey('C-s', function (ev) {
@@ -586,12 +592,23 @@ key.setEditKey('C-y', command.yank, '貼り付け (Yank)');
 key.setEditKey('M-y', command.yankPop, '古いクリップボードの中身を順に貼り付け (Yank pop)', true);
 
 key.setEditKey('C-M-y', function (ev) {
-    if (!command.kill.ring.length) {
-        return;
+  if (!command.kill.ring.length) {
+    return;
+  }
+
+  let ct = command.getClipboardText();
+
+  if (!command.kill.ring.length || ct != command.kill.ring[0]) {
+    command.pushKillRing(ct);
+  }
+
+  prompt.selector({
+    message: "Paste:", collection: command.kill.ring, callback: function (i) {
+      if (i >= 0) {
+        key.insertText(command.kill.ring[i]);
+      }
     }
-    let (ct = command.getClipboardText()) (!command.kill.ring.length || ct != command.kill.ring[0]) &&
-        command.pushKillRing(ct);
-    prompt.selector({message: "Paste:", collection: command.kill.ring, callback: function (i) {if (i >= 0) {key.insertText(command.kill.ring[i]);}}});
+  });
 }, '以前にコピーしたテキスト一覧から選択して貼り付け', true);
 
 key.setEditKey('C-w', function (ev) {
