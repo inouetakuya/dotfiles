@@ -9,7 +9,9 @@ var local = {};
 plugins.options["site_local_keymap.local_keymap"] = local;
 
 function fake(k, i) {
-  return function () { key.feed(k, i); }
+  return function () {
+    key.feed(k, i);
+  }
 };
 
 function pass(k, i) {
@@ -33,118 +35,118 @@ function passThenFocus(k, i, selector, type) {
 };
 
 local["^https?://mail.google.com/mail/"] = [
-    pass(['g', 'i']),
-    pass(['g', 's']),
-    pass(['g', 't']),
-    pass(['g', 'd']),
-    pass(['g', 'a']),
-    pass(['g', 'c']),
-    pass(['g', 'k']),
-    // thread list
-    pass(['*', 'a']),
-    // pass(['*', 'a'], 3),
-    pass(['*', 'n']),
-    pass(['*', 'r']),
-    pass(['*', 'u']),
-    pass(['*', 's']),
-    pass(['*', 't']),
-    // navigation
-    ['u', null],
-    ['k', null],
-    ['j', null],
-    ['o', null],
-    ['p', null],
-    ['n', null],
-    // application
-    ['c', null],
-    ['/', null],
-    ['q', null],
-    ['?', null],
-    // manipulation
-    ['x', null],
-    ['s', null],
-    ['y', null],
-    ['e', null],
-    ['m', null],
-    ['!', null],
-    ['#', null],
-    ['r', null],
-    ['R', null],
-    ['a', null],
-    ['A', null],
-    ['f', null],
-    ['F', null],
-    ['N', null],
-    pass(['<tab>', 'RET']),
-    ['ESC', null],
-    [']', null],
-    ['[', null],
-    ['z', null],
-    ['.', null],
-    ['I', null],
-    ['U', null],
-    ['C-s', null],
-    ['T', null],
-    ['l', null]
+  pass(['g', 'i']),
+  pass(['g', 's']),
+  pass(['g', 't']),
+  pass(['g', 'd']),
+  pass(['g', 'a']),
+  pass(['g', 'c']),
+  pass(['g', 'k']),
+  // thread list
+  pass(['*', 'a']),
+  // pass(['*', 'a'], 3),
+  pass(['*', 'n']),
+  pass(['*', 'r']),
+  pass(['*', 'u']),
+  pass(['*', 's']),
+  pass(['*', 't']),
+  // navigation
+  ['u', null],
+  ['k', null],
+  ['j', null],
+  ['o', null],
+  ['p', null],
+  ['n', null],
+  // application
+  ['c', null],
+  ['/', null],
+  ['q', null],
+  ['?', null],
+  // manipulation
+  ['x', null],
+  ['s', null],
+  ['y', null],
+  ['e', null],
+  ['m', null],
+  ['!', null],
+  ['#', null],
+  ['r', null],
+  ['R', null],
+  ['a', null],
+  ['A', null],
+  ['f', null],
+  ['F', null],
+  ['N', null],
+  pass(['<tab>', 'RET']),
+  ['ESC', null],
+  [']', null],
+  ['[', null],
+  ['z', null],
+  ['.', null],
+  ['I', null],
+  ['U', null],
+  ['C-s', null],
+  ['T', null],
+  ['l', null]
 ];
 
 local["^http://www.google.(co.jp|com)/reader/view/"] = [
-    // jump
-    pass(["g", "h"]),
-    pass(["g", "a"]),
-    pass(["g", "s"]),
-    pass(["g", "S"]),
-    pass(["g", "u"]),
-    pass(["g", "t"]),
-    pass(["g", "T"]),
-    pass(["g", "d"]),
-    pass(["g", "f"]),
-    pass(["g", "F"]),
-    pass(["g", "c"]),
-    pass(["g", "C"]),
-    pass(["g", "e"]),
-    pass(["g", "p"]),
-    // navigation
-    ["j", null],
-    ["k", null],
-    ["n", null],
-    ["p", null],
-    ["N", null],
-    ["P", null],
-    ["X", null],
-    ["o", null],
-    // item
-    ["s", null],
-    ["L", null],
-    ["t", null],
-    //["e", null],
-    ["S", null],
-    ["d", null],
-    ["v", null],
-    ["o", null],
-    ["c", null],
-    ["C", null],
-    ["m", null],
-    ["A", null],
-    ["T", null],
-    // application
-    ["r", null],
-    ["u", null],
-    ["1", null],
-    ["2", null],
-    ["/", null],
-    ["a", null],
-    ["=", null],
-    ["-", null]
+  // jump
+  pass(["g", "h"]),
+  pass(["g", "a"]),
+  pass(["g", "s"]),
+  pass(["g", "S"]),
+  pass(["g", "u"]),
+  pass(["g", "t"]),
+  pass(["g", "T"]),
+  pass(["g", "d"]),
+  pass(["g", "f"]),
+  pass(["g", "F"]),
+  pass(["g", "c"]),
+  pass(["g", "C"]),
+  pass(["g", "e"]),
+  pass(["g", "p"]),
+  // navigation
+  ["j", null],
+  ["k", null],
+  ["n", null],
+  ["p", null],
+  ["N", null],
+  ["P", null],
+  ["X", null],
+  ["o", null],
+  // item
+  ["s", null],
+  ["L", null],
+  ["t", null],
+  //["e", null],
+  ["S", null],
+  ["d", null],
+  ["v", null],
+  ["o", null],
+  ["c", null],
+  ["C", null],
+  ["m", null],
+  ["A", null],
+  ["T", null],
+  // application
+  ["r", null],
+  ["u", null],
+  ["1", null],
+  ["2", null],
+  ["/", null],
+  ["a", null],
+  ["=", null],
+  ["-", null]
 ];
 
 local["^http://b.hatena.ne.jp/"] = [
-    // navigation
-    ["j", null],
-    ["k", null],
-    ["o", null],
-    //["e", null],
-    ["b", null]
+  // navigation
+  ["j", null],
+  ["k", null],
+  ["o", null],
+  //["e", null],
+  ["b", null]
 ];
 
 plugins.options["hatebnail.list_bookmarks_limit"] = 9999;
@@ -154,120 +156,124 @@ plugins.options["hatebnail.list_bookmarks_limit"] = 9999;
 
 // ========================= Special key settings ========================== //
 
-key.quitKey              = "C-g";
-key.helpKey              = "<f1>";
-key.escapeKey            = "C-q";
-key.macroStartKey        = "undefined";
-key.macroEndKey          = "undefined";
+key.quitKey = "C-g";
+key.helpKey = "<f1>";
+key.escapeKey = "C-q";
+key.macroStartKey = "undefined";
+key.macroEndKey = "undefined";
 key.universalArgumentKey = "C-u";
 key.negativeArgument1Key = "C--";
 key.negativeArgument2Key = "C-M--";
 key.negativeArgument3Key = "M--";
-key.suspendKey           = "<f2>";
+key.suspendKey = "<f2>";
 
 // ================================= Hooks ================================= //
 
 hook.setHook('KeyBoardQuit', function (aEvent) {
-    if (key.currentKeySequence.length) {
-        return;
-    }
-    command.closeFindBar();
-    var marked = command.marked(aEvent);
-    if (util.isCaretEnabled()) {
-        if (marked) {
-            command.resetMark(aEvent);
-        } else {
-            if ("blur" in aEvent.target) {
-                aEvent.target.blur();
-            }
-            gBrowser.focus();
-            _content.focus();
-        }
-    } else {
-        goDoCommand("cmd_selectNone");
-    }
-    if (KeySnail.windowType === "navigator:browser" && !marked) {
-        key.generateKey(aEvent.originalTarget, KeyEvent.DOM_VK_ESCAPE, true);
-    }
-});
+  if (key.currentKeySequence.length) {
+    return;
+  }
 
+  command.closeFindBar();
+
+  var marked = command.marked(aEvent);
+
+  if (util.isCaretEnabled()) {
+    if (marked) {
+      command.resetMark(aEvent);
+    } else {
+      if ("blur" in aEvent.target) {
+        aEvent.target.blur();
+      }
+      gBrowser.focus();
+      _content.focus();
+    }
+  } else {
+    goDoCommand("cmd_selectNone");
+  }
+
+  if (KeySnail.windowType === "navigator:browser" && !marked) {
+    key.generateKey(aEvent.originalTarget, KeyEvent.DOM_VK_ESCAPE, true);
+  }
+});
 
 // ============================= Key bindings ============================== //
 
 key.setGlobalKey('M-x', function (ev, arg) {
-    ext.select(arg, ev);
+  ext.select(arg, ev);
 }, 'エクステ一覧表示', true);
 
 key.setGlobalKey(['<f1>', 'b'], function (ev) {
-    key.listKeyBindings();
+  key.listKeyBindings();
 }, 'キーバインド一覧を表示');
 
 key.setGlobalKey(['<f1>', 'F'], function (ev) {
-    openHelpLink("firefox-help");
+  openHelpLink("firefox-help");
 }, 'Firefox のヘルプを表示');
 
 key.setGlobalKey('C-m', function (ev) {
-    key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RETURN, true);
+  key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RETURN, true);
 }, 'リターンコードを生成');
 
 key.setGlobalKey(['C-x', 'g'], function (ev) {
-    command.focusToById("searchbar");
+  command.focusToById("searchbar");
 }, '検索バーへフォーカス', true);
 
 key.setGlobalKey(['C-x', 't'], function (ev) {
-    command.focusElement(command.elementsRetrieverTextarea, 0);
+  command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
 
 key.setGlobalKey(['C-x', 's'], function (ev) {
-    command.focusElement(command.elementsRetrieverButton, 0);
+  command.focusElement(command.elementsRetrieverButton, 0);
 }, '最初のボタンへフォーカス', true);
 
 key.setGlobalKey(['C-x', 'k'], function (ev) {
-    BrowserCloseTabOrWindow();
+  BrowserCloseTabOrWindow();
 }, 'タブ / ウィンドウを閉じる');
 
 key.setGlobalKey(['C-x', 'K'], function (ev) {
-    closeWindow(true);
+  closeWindow(true);
 }, 'ウィンドウを閉じる');
 
 key.setGlobalKey(['C-x', 'n'], function (ev) {
-    OpenBrowserWindow();
+  OpenBrowserWindow();
 }, 'ウィンドウを開く');
 
 key.setGlobalKey(['C-x', 'C-c'], function (ev) {
-    goQuitApplication();
+  goQuitApplication();
 }, 'Firefox を終了', true);
 
 key.setGlobalKey(['C-x', 'o'], function (ev, arg) {
-    command.focusOtherFrame(arg);
+  command.focusOtherFrame(arg);
 }, '次のフレームを選択');
 
 key.setGlobalKey(['C-x', '1'], function (ev) {
-    window.loadURI(ev.target.ownerDocument.location.href);
+  window.loadURI(ev.target.ownerDocument.location.href);
 }, '現在のフレームだけを表示', true);
 
 key.setGlobalKey(['C-x', 'C-f'], function (ev) {
-    BrowserOpenFileWindow();
+  BrowserOpenFileWindow();
 }, 'ファイルを開く', true);
 
 key.setGlobalKey(['C-x', 'C-s'], function (ev) {
-    saveDocument(window.content.document);
+  saveDocument(window.content.document);
 }, 'ファイルを保存', true);
 
 key.setGlobalKey(['C-x', 'e'], function (aEvent, aArg) {
-    ext.exec("hok-start-foreground-mode", aArg);
+  ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hit a Hint を開始', true);
 
 key.setGlobalKey(['C-x', 'E'], function (aEvent, aArg) {
-    ext.exec("hok-start-background-mode", aArg);
+  ext.exec("hok-start-background-mode", aArg);
 }, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
 
 key.setGlobalKey(['C-x', 'm'], function (ev) {
-    window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
+  window.windowState == window.STATE_MAXIMIZED ? window.restore() : window.maximize();
 }, 'ウィンドウを最大化 / 元の大きさに戻す', true);
 
 key.setGlobalKey([['C-x', '.'], ['C-.']], function (ev, arg) {
   var elem = document.commandDispatcher.focusedElement;
+
   if (elem) {
     elem.blur();
   }
@@ -277,279 +283,281 @@ key.setGlobalKey([['C-x', '.'], ['C-.']], function (ev, arg) {
 }, 'コンテンツへフォーカス', true);
 
 key.setGlobalKey('C-s', function (ev) {
-    command.iSearchForwardKs(ev);
+  command.iSearchForwardKs(ev);
 }, 'Emacs ライクなインクリメンタル検索', true);
 
 key.setGlobalKey('C-r', function (ev) {
-    command.iSearchBackwardKs(ev);
+  command.iSearchBackwardKs(ev);
 }, 'Emacs ライクな逆方向インクリメンタル検索', true);
 
 key.setGlobalKey(['C-c', 'u'], function (ev) {
-    undoCloseTab();
+  undoCloseTab();
 }, '閉じたタブを元に戻す');
 
 key.setGlobalKey(['C-c', 'C-c', 'C-v'], function (ev) {
-    toJavaScriptConsole();
+  toJavaScriptConsole();
 }, 'Javascript コンソールを表示', true);
 
 key.setGlobalKey(['C-c', 'C-c', 'C-c'], function (ev) {
-    command.clearConsole();
+  command.clearConsole();
 }, 'Javascript コンソールの表示をクリア', true);
 
 key.setGlobalKey('C-M-l', function (ev) {
-    getBrowser().mTabContainer.advanceSelectedTab(1, true);
+  getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
 key.setGlobalKey('C-M-h', function (ev) {
-    getBrowser().mTabContainer.advanceSelectedTab(-1, true);
+  getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
 key.setGlobalKey('C-O', function (ev, arg) {
-    var toolbox = document.getElementById("navigator-toolbox");
-    toolbox.hidden = !toolbox.hidden;
-    if (arg || !toolbox.hidden) {
-        var statusbar = document.getElementById("status-bar");
-        statusbar.hidden = toolbox.hidden;
-    }
+  var toolbox = document.getElementById("navigator-toolbox");
+  toolbox.hidden = !toolbox.hidden;
+  if (arg || !toolbox.hidden) {
+    var statusbar = document.getElementById("status-bar");
+    statusbar.hidden = toolbox.hidden;
+  }
 }, '擬似フルスクリーン状態を切り替え', true);
 
 key.setGlobalKey([['C-x', ';'], ["C-'"]], function (ev, arg) {
-    ext.exec("list-hateb-items", arg);
+  ext.exec("list-hateb-items", arg);
 }, "はてなブックマークのアイテムを一覧表示", true);
 
 key.setGlobalKey(['C-x', 'b'], function (ev, arg) {
-    ext.exec("bmany-list-all-bookmarks", arg, ev);
+  ext.exec("bmany-list-all-bookmarks", arg, ev);
 }, "ブックマークを一覧表示");
 
 key.setGlobalKey([['C-x', 'l'], ['C-;']], function (ev, arg) {
-    ext.exec("bmany-list-toolbar-bookmarks", arg, ev);
+  ext.exec("bmany-list-toolbar-bookmarks", arg, ev);
 }, "ツールバーのブックマークを一覧表示");
 
 key.setGlobalKey([['C-x', 't'], ['C-t']], function (ev, arg) {
-    ext.exec("tanything", arg);
+  ext.exec("tanything", arg);
 }, "タブを一覧表示", true);
 
 key.setGlobalKey([['C-c', 'h'], ['C-,']], function (ev, arg) {
-    ext.exec("history-show", arg);
+  ext.exec("history-show", arg);
 }, "履歴リストを表示", true);
 
 key.setViewKey('C-M-u', function (ev, arg) {
-    var w = window._content;
-    var d = w.document;
-    var txt = d.location.href;
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
-    CLIPBOARD.copyString(txt);
+  var w = window._content;
+  var d = w.document;
+  var txt = d.location.href;
+  const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+  CLIPBOARD.copyString(txt);
 }, 'URL をコピー');
 
 key.setViewKey('C-M-t', function (ev, arg) {
-    var w = window._content;
-    var d = w.document;
-    var txt = d.title;
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
-    CLIPBOARD.copyString(txt);
+  var w = window._content;
+  var d = w.document;
+  var txt = d.title;
+  const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+  CLIPBOARD.copyString(txt);
 }, 'タイトルをコピー');
 
 key.setViewKey('C-M-b', function (ev, arg) {
-    var w = window._content;
-    var d = w.document;
-    var txt = d.title + ("\n" + d.location.href);
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
-    CLIPBOARD.copyString(txt);
+  var w = window._content;
+  var d = w.document;
+  var txt = d.title + ("\n" + d.location.href);
+  const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+  CLIPBOARD.copyString(txt);
 }, 'URL とタイトルをコピー');
 
 key.setViewKey('C-M-l', function (ev, arg) {
-    var w = window._content;
-    var d = w.document;
-    var txt = "* [" + d.title + "](" + d.location.href + ")";
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
-    CLIPBOARD.copyString(txt);
+  var w = window._content;
+  var d = w.document;
+  var txt = "* [" + d.title + "](" + d.location.href + ")";
+  const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+  CLIPBOARD.copyString(txt);
 }, 'リンクを Markdown 形式でコピー');
 
 key.setViewKey('C-M-h', function (ev, arg) {
-    var w = window._content;
-    var d = w.document;
-    var title = d.title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
-    var txt = "[" + d.location.href + ":title=" + title + ":bookmark]";
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
-    CLIPBOARD.copyString(txt);
+  var w = window._content;
+  var d = w.document;
+  var title = d.title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
+  var txt = "[" + d.location.href + ":title=" + title + ":bookmark]";
+  const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+  CLIPBOARD.copyString(txt);
 }, 'リンクをはてな記法でコピー');
 
 key.setViewKey([['e'], ['SPC']], function (aEvent, aArg) {
-    ext.exec("hok-start-foreground-mode", aArg);
+  ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hit a Hint を開始', true);
 
 key.setViewKey([['E'], ['S-SPC']], function (aEvent, aArg) {
-    ext.exec("hok-start-background-mode", aArg);
+  ext.exec("hok-start-background-mode", aArg);
 }, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
 
 key.setViewKey(';', function (aEvent, aArg) {
-    ext.exec("hok-start-extended-mode", aArg);
+  ext.exec("hok-start-extended-mode", aArg);
 }, 'HoK - 拡張ヒントモード', true);
 
 key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
-    ext.exec("hok-start-continuous-mode", aArg);
+  ext.exec("hok-start-continuous-mode", aArg);
 }, 'リンクを連続して開く Hit a Hint を開始', true);
 
 key.setViewKey([['C-n'], ['j']], function (ev) {
-    key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
+  key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
 }, '一行スクロールダウン');
 
 key.setViewKey([['C-p'], ['k']], function (ev) {
-    key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
+  key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
 }, '一行スクロールアップ');
 
 key.setViewKey('.', function (ev) {
-    key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
+  key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
 }, '右へスクロール');
 
 key.setViewKey(',', function (ev) {
-    key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
+  key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
 }, '左へスクロール');
 
 key.setViewKey([['M-v'], ['b']], function (ev) {
-    goDoCommand("cmd_scrollPageUp");
+  goDoCommand("cmd_scrollPageUp");
 }, '一画面分スクロールアップ');
 
 key.setViewKey('C-v', function (ev) {
-    goDoCommand("cmd_scrollPageDown");
+  goDoCommand("cmd_scrollPageDown");
 }, '一画面スクロールダウン');
 
 key.setViewKey([['<'], ['g']], function (ev) {
-    goDoCommand("cmd_scrollTop");
+  goDoCommand("cmd_scrollTop");
 }, 'ページ先頭へ移動', true);
 
 key.setViewKey([['>'], ['G']], function (ev) {
-    goDoCommand("cmd_scrollBottom");
+  goDoCommand("cmd_scrollBottom");
 }, 'ページ末尾へ移動', true);
 
 key.setViewKey([['C-f'], ['l']], function (ev) {
-    getBrowser().mTabContainer.advanceSelectedTab(1, true);
+  getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
 key.setViewKey([['C-b'], ['h']], function (ev) {
-    getBrowser().mTabContainer.advanceSelectedTab(-1, true);
+  getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
 key.setViewKey(':', function (ev, arg) {
-    shell.input(null, arg);
+  shell.input(null, arg);
 }, 'コマンドの実行', true);
 
 key.setViewKey('R', function (ev) {
-    BrowserReload();
+  BrowserReload();
 }, '更新', true);
 
 key.setViewKey('B', function (ev) {
-    BrowserBack();
+  BrowserBack();
 }, '戻る');
 
 key.setViewKey('F', function (ev) {
-    BrowserForward();
+  BrowserForward();
 }, '進む');
 
 key.setViewKey(['C-x', 'h'], function (ev) {
-    goDoCommand("cmd_selectAll");
+  goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
 key.setViewKey('f', function (ev) {
-    command.focusElement(command.elementsRetrieverTextarea, 0);
+  command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
 
 key.setViewKey('M-p', function (ev) {
-    command.walkInputElement(command.elementsRetrieverButton, true, true);
+  command.walkInputElement(command.elementsRetrieverButton, true, true);
 }, '次のボタンへフォーカスを当てる');
 
 key.setViewKey('M-n', function (ev) {
-    command.walkInputElement(command.elementsRetrieverButton, false, true);
+  command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
 
 key.setEditKey(['C-x', 'h'], function (ev) {
-    command.selectAll(ev);
+  command.selectAll(ev);
 }, '全て選択', true);
 
 key.setEditKey([['C-x', 'u'], ['C-/']], function (ev) {
-    display.echoStatusBar("Undo!", 2000);
-    goDoCommand("cmd_undo");
+  display.echoStatusBar("Undo!", 2000);
+  goDoCommand("cmd_undo");
 }, 'アンドゥ');
 
 key.setEditKey(['C-x', 'r', 'd'], function (ev, arg) {
-    command.replaceRectangle(ev.originalTarget, "", false, !arg);
+  command.replaceRectangle(ev.originalTarget, "", false, !arg);
 }, '矩形削除', true);
 
 key.setEditKey(['C-x', 'r', 't'], function (ev) {
-    prompt.read("String rectangle: ", function (aStr, aInput) {command.replaceRectangle(aInput, aStr);}, ev.originalTarget);
+  prompt.read("String rectangle: ", function (aStr, aInput) {
+    command.replaceRectangle(aInput, aStr);
+  }, ev.originalTarget);
 }, '矩形置換', true);
 
 key.setEditKey(['C-x', 'r', 'o'], function (ev) {
-    command.openRectangle(ev.originalTarget);
+  command.openRectangle(ev.originalTarget);
 }, '矩形行空け', true);
 
 key.setEditKey(['C-x', 'r', 'k'], function (ev, arg) {
-    command.kill.buffer = command.killRectangle(ev.originalTarget, !arg);
+  command.kill.buffer = command.killRectangle(ev.originalTarget, !arg);
 }, '矩形キル', true);
 
 key.setEditKey(['C-x', 'r', 'y'], function (ev) {
-    command.yankRectangle(ev.originalTarget, command.kill.buffer);
+  command.yankRectangle(ev.originalTarget, command.kill.buffer);
 }, '矩形ヤンク', true);
 
 key.setEditKey('C-o', function (ev) {
-    command.openLine(ev);
+  command.openLine(ev);
 }, '行を開く (Open line)');
 
 key.setEditKey('C-|', function (ev) {
-    display.echoStatusBar("Redo!", 2000);
-    goDoCommand("cmd_redo");
+  display.echoStatusBar("Redo!", 2000);
+  goDoCommand("cmd_redo");
 }, 'リドゥ');
 
 key.setEditKey('C-a', function (ev) {
-    command.beginLine(ev);
+  command.beginLine(ev);
 }, '行頭へ移動');
 
 key.setEditKey('C-e', function (ev) {
-    command.endLine(ev);
+  command.endLine(ev);
 }, '行末へ');
 
 key.setEditKey('C-f', function (ev) {
-    command.nextChar(ev);
+  command.nextChar(ev);
 }, '一文字右へ移動');
 
 key.setEditKey('C-b', function (ev) {
-    command.previousChar(ev);
+  command.previousChar(ev);
 }, '一文字左へ移動');
 
 key.setEditKey('C-n', function (ev) {
-    command.nextLine(ev);
+  command.nextLine(ev);
 }, '一行下へ');
 
 key.setEditKey('C-p', function (ev) {
-    command.previousLine(ev);
+  command.previousLine(ev);
 }, '一行上へ');
 
 key.setEditKey('C-v', function (ev) {
-    command.pageDown(ev);
+  command.pageDown(ev);
 }, '一画面分下へ');
 
 key.setEditKey('M-<', function (ev) {
-    command.moveTop(ev);
+  command.moveTop(ev);
 }, 'テキストエリア先頭へ');
 
 key.setEditKey('M->', function (ev) {
-    command.moveBottom(ev);
+  command.moveBottom(ev);
 }, 'テキストエリア末尾へ');
 
 key.setEditKey('C-d', function (ev) {
-    goDoCommand("cmd_deleteCharForward");
+  goDoCommand("cmd_deleteCharForward");
 }, '次の一文字削除');
 
 key.setEditKey('C-h', function (ev) {
-    goDoCommand("cmd_deleteCharBackward");
+  goDoCommand("cmd_deleteCharBackward");
 }, '前の一文字を削除');
 
 key.setEditKey([['C-<backspace>'], ['M-<delete>']], function (ev) {
-    command.deleteBackwardWord(ev);
+  command.deleteBackwardWord(ev);
 }, '前の一単語を削除');
 
 key.setEditKey('C-k', function (ev) {
-    command.killLine(ev);
+  command.killLine(ev);
 }, 'カーソルから先を一行カット (Kill line)');
 
 key.setEditKey('C-y', command.yank, '貼り付け (Yank)');
@@ -577,120 +585,120 @@ key.setEditKey('C-M-y', function (ev) {
 }, '以前にコピーしたテキスト一覧から選択して貼り付け', true);
 
 key.setEditKey('C-w', function (ev) {
-    goDoCommand("cmd_copy");
-    goDoCommand("cmd_delete");
-    command.resetMark(ev);
+  goDoCommand("cmd_copy");
+  goDoCommand("cmd_delete");
+  command.resetMark(ev);
 }, '選択中のテキストを切り取り (Kill region)', true);
 
 key.setEditKey('M-w', function (ev) {
-    command.copyRegion(ev);
+  command.copyRegion(ev);
 }, '選択中のテキストをコピー');
 
 key.setEditKey('C-M-r', function (ev) {
-    var clipboardText = command.getClipboardText();
-    var reg = new RegExp(/<span\sclass="hatena-bookmark-title"><a\shref="([^"]+)">(.+)<\/a><\/span>\s<span\sclass="hatena-bookmark-users">/);
-    var result = reg.exec(clipboardText);
+  var clipboardText = command.getClipboardText();
+  var reg = new RegExp(/<span\sclass="hatena-bookmark-title"><a\shref="([^"]+)">(.+)<\/a><\/span>\s<span\sclass="hatena-bookmark-users">/);
+  var result = reg.exec(clipboardText);
 
-    if (!result) {
-      return;
-    }
+  if (!result) {
+    return;
+  }
 
-    var url = result[1];
-    var url = url.replace('http://d.hatena.ne.jp/inouetakuya/', 'http://blog.inouetakuya.info/entry/');
-    var title = result[2];
-    var title = title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
-    var link = "[" + url + ":title=" + title + ":bookmark]";
+  var url = result[1];
+  var url = url.replace('http://d.hatena.ne.jp/inouetakuya/', 'http://blog.inouetakuya.info/entry/');
+  var title = result[2];
+  var title = title.replace(' - 彼女からは、おいちゃんと呼ばれています', '');
+  var link = "[" + url + ":title=" + title + ":bookmark]";
 
-    const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
-    CLIPBOARD.copyString(link);
+  const CLIPBOARD = Components.classes['@mozilla.org/widget/clipboardhelper;1'].getService(Components.interfaces.nsIClipboardHelper);
+  CLIPBOARD.copyString(link);
 }, 'クリップボードの内容をはてな記法リンクに変換する');
 
 key.setCaretKey([['C-a'], ['^']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
+  ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
 }, 'キャレットを行頭へ移動');
 
 key.setCaretKey([['C-e'], ['$'], ['M->'], ['G']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectEndLine") : goDoCommand("cmd_endLine");
+  ev.target.ksMarked ? goDoCommand("cmd_selectEndLine") : goDoCommand("cmd_endLine");
 }, 'キャレットを行末へ移動');
 
 key.setCaretKey([['C-n'], ['j']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectLineNext") : goDoCommand("cmd_scrollLineDown");
+  ev.target.ksMarked ? goDoCommand("cmd_selectLineNext") : goDoCommand("cmd_scrollLineDown");
 }, 'キャレットを一行下へ');
 
 key.setCaretKey([['C-p'], ['k']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectLinePrevious") : goDoCommand("cmd_scrollLineUp");
+  ev.target.ksMarked ? goDoCommand("cmd_selectLinePrevious") : goDoCommand("cmd_scrollLineUp");
 }, 'キャレットを一行上へ');
 
 key.setCaretKey([['C-f'], ['l']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectCharNext") : goDoCommand("cmd_scrollRight");
+  ev.target.ksMarked ? goDoCommand("cmd_selectCharNext") : goDoCommand("cmd_scrollRight");
 }, 'キャレットを一文字右へ移動');
 
 key.setCaretKey([['C-b'], ['h'], ['C-h']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectCharPrevious") : goDoCommand("cmd_scrollLeft");
+  ev.target.ksMarked ? goDoCommand("cmd_selectCharPrevious") : goDoCommand("cmd_scrollLeft");
 }, 'キャレットを一文字左へ移動');
 
 key.setCaretKey([['M-f'], ['w']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectWordNext") : goDoCommand("cmd_wordNext");
+  ev.target.ksMarked ? goDoCommand("cmd_selectWordNext") : goDoCommand("cmd_wordNext");
 }, 'キャレットを一単語右へ移動');
 
 key.setCaretKey([['M-b'], ['W']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectWordPrevious") : goDoCommand("cmd_wordPrevious");
+  ev.target.ksMarked ? goDoCommand("cmd_selectWordPrevious") : goDoCommand("cmd_wordPrevious");
 }, 'キャレットを一単語左へ移動');
 
 key.setCaretKey([['C-v'], ['SPC']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectPageNext") : goDoCommand("cmd_movePageDown");
+  ev.target.ksMarked ? goDoCommand("cmd_selectPageNext") : goDoCommand("cmd_movePageDown");
 }, 'キャレットを一画面分下へ');
 
 key.setCaretKey([['M-v'], ['b']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectPagePrevious") : goDoCommand("cmd_movePageUp");
+  ev.target.ksMarked ? goDoCommand("cmd_selectPagePrevious") : goDoCommand("cmd_movePageUp");
 }, 'キャレットを一画面分上へ');
 
 key.setCaretKey([['M-<'], ['g']], function (ev) {
-    ev.target.ksMarked ? goDoCommand("cmd_selectTop") : goDoCommand("cmd_scrollTop");
+  ev.target.ksMarked ? goDoCommand("cmd_selectTop") : goDoCommand("cmd_scrollTop");
 }, 'キャレットをページ先頭へ移動');
 
 key.setCaretKey('J', function (ev) {
-    util.getSelectionController().scrollLine(true);
+  util.getSelectionController().scrollLine(true);
 }, '画面を一行分下へスクロール');
 
 key.setCaretKey('K', function (ev) {
-    util.getSelectionController().scrollLine(false);
+  util.getSelectionController().scrollLine(false);
 }, '画面を一行分上へスクロール');
 
 key.setCaretKey(',', function (ev) {
-    util.getSelectionController().scrollHorizontal(true);
-    goDoCommand("cmd_scrollLeft");
+  util.getSelectionController().scrollHorizontal(true);
+  goDoCommand("cmd_scrollLeft");
 }, '左へスクロール');
 
 key.setCaretKey('.', function (ev) {
-    goDoCommand("cmd_scrollRight");
-    util.getSelectionController().scrollHorizontal(false);
+  goDoCommand("cmd_scrollRight");
+  util.getSelectionController().scrollHorizontal(false);
 }, '右へスクロール');
 
 key.setCaretKey('z', function (ev) {
-    command.recenter(ev);
+  command.recenter(ev);
 }, 'キャレットの位置までスクロール');
 
 key.setCaretKey(':', function (ev, arg) {
-    shell.input(null, arg);
+  shell.input(null, arg);
 }, 'コマンドの実行', true);
 
 key.setCaretKey('R', function (ev) {
-    BrowserReload();
+  BrowserReload();
 }, '更新', true);
 
 key.setCaretKey('B', function (ev) {
-    BrowserBack();
+  BrowserBack();
 }, '戻る');
 
 key.setCaretKey('F', function (ev) {
-    BrowserForward();
+  BrowserForward();
 }, '進む');
 
 key.setCaretKey(['C-x', 'h'], function (ev) {
-    goDoCommand("cmd_selectAll");
+  goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
 key.setCaretKey('f', function (ev) {
-    command.focusElement(command.elementsRetrieverTextarea, 0);
+  command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
