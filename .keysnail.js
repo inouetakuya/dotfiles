@@ -420,11 +420,11 @@ key.setViewKey([['>'], ['G']], function (ev) {
   goDoCommand("cmd_scrollBottom");
 }, 'ページ末尾へ移動', true);
 
-key.setViewKey([['<right>'], ['l']], function (ev) {
+key.setViewKey([['C-f'], ['l']], function (ev) {
   getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
-key.setViewKey([['<left>'], ['h']], function (ev) {
+key.setViewKey([['C-b'], ['h']], function (ev) {
   getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
