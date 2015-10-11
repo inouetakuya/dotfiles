@@ -16,3 +16,7 @@ git clone https://inouetakuya@github.com/inouetakuya/dotfiles.git
 sh ~/dotfiles/bin/init.sh
 bundle install
 ```
+
+## Boxen
+
+* [inouetakuya/my-boxen](https://github.com/inouetakuya/my-boxen)
