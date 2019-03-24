@@ -1,22 +1,19 @@
-my dotfiles
-===========
-
-manage my dotfiles
+# My dotfiles
 
 ## Install
 
-```sh
+```shell
 cd ~
-git clone https://inouetakuya@github.com/inouetakuya/dotfiles.git
+git clone git@github.com:inouetakuya/dotfiles.git
 ```
 
 ## Setup
 
-```sh
+```shell
 sh ~/dotfiles/bin/init.sh
 bundle install
 ```
 
 ## Boxen
 
-* [inouetakuya/my-boxen](https://github.com/inouetakuya/my-boxen)
+- [inouetakuya/my-boxen](https://github.com/inouetakuya/my-boxen)
